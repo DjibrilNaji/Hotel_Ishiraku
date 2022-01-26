@@ -50,6 +50,7 @@ public class LavageReceptionnisteController implements Initializable {
     @FXML
     private TableColumn<lavage, String> col_commentaire;
 
+
     @FXML
     private TextField txt_id;
 
@@ -135,8 +136,10 @@ public class LavageReceptionnisteController implements Initializable {
 
             String sql = "update lavage set id='" + value1 + "', laveur= '" + value2 + "',date= '" + value3 + "',heure= '" +
                     value4 + "',voiture= '" + value5 + "',commentaire= '" + value6 + "' where id= '" + value1 + "' ";
+
             pst = conn.prepareStatement(sql);
             pst.execute();
+
             JOptionPane.showMessageDialog(null, "Update");
             UpdateTable();
             search_user();
@@ -224,7 +227,7 @@ public class LavageReceptionnisteController implements Initializable {
         // Code Source in description
     }
 
-    public void sommaireR(ActionEvent actionEvent) throws IOException {
+    public void sommaire(ActionEvent actionEvent) throws IOException {
         btn_accueil.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/SommaireReceptionniste.fxml"));
         Stage mainStage = new Stage();

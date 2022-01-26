@@ -89,7 +89,6 @@ public class mysqlconnect {
         return listClient;
     }
 
-
 }
 
 

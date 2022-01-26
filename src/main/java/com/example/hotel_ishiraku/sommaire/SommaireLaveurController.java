@@ -15,9 +15,21 @@ public class SommaireLaveurController {
     @FXML
     private Button btn_consulter_lavage;
 
+    @FXML
+    private Button btn_deconnexion;
+
     public void lavage(ActionEvent actionEvent) throws IOException {
         btn_consulter_lavage.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/ConsulterLavageLaveur.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+    public void deconnexion(ActionEvent actionEvent) throws IOException {
+        btn_deconnexion.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/Login.fxml"));
         Stage mainStage = new Stage();
         Scene scene = new Scene(root);
         mainStage.setScene(scene);

@@ -22,10 +22,7 @@ public class SommaireReceptionnisteController {
     private Button btn_consulter_place;
 
     @FXML
-    private Button btn_reserver_lavage;
-
-    @FXML
-    private Button btn_reserver_place;
+    private Button btn_deconnexion;
 
 
     public void consulter_client(ActionEvent actionEvent) throws IOException {
@@ -36,24 +33,6 @@ public class SommaireReceptionnisteController {
         mainStage.setScene(scene);
         mainStage.show();
     }
-
-    public void reserver_place(ActionEvent actionEvent) throws IOException {
-        btn_reserver_place.getScene().getWindow().hide();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/"));
-        Stage mainStage = new Stage();
-        Scene scene = new Scene(root);
-        mainStage.setScene(scene);
-        mainStage.show();
-    }
-
-//    public void reserver_lavage(ActionEvent actionEvent) throws IOException {
-//        btn_reserver_lavage.getScene().getWindow().hide();
-//        Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/"));
-//        Stage mainStage = new Stage();
-//        Scene scene = new Scene(root);
-//        mainStage.setScene(scene);
-//        mainStage.show();
-//    }
 
     public void consulter_place(ActionEvent actionEvent) throws IOException {
         btn_consulter_place.getScene().getWindow().hide();
@@ -73,6 +52,14 @@ public class SommaireReceptionnisteController {
         mainStage.show();
     }
 
+    public void deconnexion(ActionEvent actionEvent) throws IOException {
+        btn_deconnexion.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/Login.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
 
 
 }

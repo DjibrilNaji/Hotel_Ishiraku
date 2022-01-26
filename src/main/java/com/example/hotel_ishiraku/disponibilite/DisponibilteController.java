@@ -91,6 +91,9 @@ public class DisponibilteController implements Initializable {
     @FXML
     void getSelected(MouseEvent event) {
         index = table_disponibilite.getSelectionModel().getSelectedIndex();
+        index = table_disponibilite.getSelectionModel().getSelectedIndex();
+
+
         if (index <= -1) {
             return;
         }
@@ -104,11 +107,13 @@ public class DisponibilteController implements Initializable {
         try {
             conn = com.example.hotel_ishiraku.mysqlconnect.ConnectDb();
             String value1 = txt_id.getText();
-            String value4 = txt_disponibilite.getText();
-            String value7 = txt_client.getText();
+            String value2 = txt_disponibilite.getText();
+            String value3 = txt_client.getText();
 
-            String sql = "update place set disponibilite= '" + value4 + "',client= '" + value7 + "' where id= '" + value1 + "' ";
+            String sql = "update place set disponibilite= '" + value2 + "',client= '" + value3 + "' where id= '" + value1 + "' ";
+
             pst = conn.prepareStatement(sql);
+
             pst.execute();
             JOptionPane.showMessageDialog(null, "Modification effectuée avec succès");
             UpdateTable();
@@ -129,6 +134,7 @@ public class DisponibilteController implements Initializable {
         col_client.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("client"));
 
         listM = com.example.hotel_ishiraku.mysqlconnect.getDataPlace();
+
         table_disponibilite.setItems(listM);
     }
 //

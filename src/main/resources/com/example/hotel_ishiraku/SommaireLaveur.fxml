@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0"
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="261.0"
       prefWidth="522.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_ishiraku.sommaire.SommaireLaveurController">
     <children>
@@ -17,9 +17,10 @@
                 <Font size="30.0"/>
             </font>
         </Label>
-        <Text layoutX="460.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laveur">
+        <Text layoutX="426.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laveur"
+              wrappingWidth="56.63525390625">
             <font>
-                <Font size="13.0"/>
+                <Font size="18.0"/>
             </font>
         </Text>
         <Button layoutX="42.0" layoutY="84.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="366.0"
@@ -28,13 +29,18 @@
                 <Font size="20.0"/>
             </font>
         </Button>
-        <Button fx:id="btn_consulter_lavage" onAction="#lavage" layoutX="42.0" layoutY="143.0" mnemonicParsing="false"
-                prefHeight="44.0" prefWidth="366.0"
-                text="Consulter les réservations">
+        <Button fx:id="btn_consulter_lavage" layoutX="42.0" layoutY="143.0" mnemonicParsing="false" onAction="#lavage"
+                prefHeight="44.0" prefWidth="366.0" text="Consulter les réservations">
             <font>
                 <Font size="20.0"/>
             </font>
         </Button>
-        <VBox layoutX="506.0" prefHeight="211.0" prefWidth="23.0" style="-fx-background-color: #385898;"/>
+        <VBox layoutX="497.0" prefHeight="261.0" prefWidth="23.0" style="-fx-background-color: #385898;"/>
+        <Button fx:id="btn_deconnexion" layoutX="42.0" layoutY="203.0" mnemonicParsing="false" onAction="#deconnexion"
+                prefHeight="44.0" prefWidth="176.0" text="Deconnexion">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Button>
     </children>
 </Pane>
