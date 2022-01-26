@@ -19,7 +19,7 @@
                 <TextField fx:id="txt_id" layoutX="24.0" layoutY="37.0" prefHeight="23.0" prefWidth="180.0"
                            promptText="ID"/>
                 <TextField fx:id="txt_nom" layoutX="24.0" layoutY="96.0" prefHeight="30.0" prefWidth="180.0"
-                           promptText="Nom"/>
+                           promptText="Nomtmr"/>
                 <TextField fx:id="txt_prenom" layoutX="24.0" layoutY="159.0" prefHeight="30.0" prefWidth="180.0"
                            promptText="Prénom"/>
                 <TextField fx:id="txt_numero" layoutX="24.0" layoutY="222.0" prefHeight="30.0" prefWidth="180.0"
