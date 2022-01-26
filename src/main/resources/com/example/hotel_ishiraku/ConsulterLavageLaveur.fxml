@@ -37,6 +37,6 @@
                 <Font name="System Bold" size="18.0" />
             </font>
         </Button>
-      <DatePicker fx:id="filterField" layoutX="422.0" layoutY="105.0" />
+        <DatePicker fx:id="filterField" layoutX="422.0" layoutY="105.0" />
     </children>
 </AnchorPane>

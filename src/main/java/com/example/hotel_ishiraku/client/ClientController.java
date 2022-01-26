@@ -1,18 +1,23 @@
 package com.example.hotel_ishiraku.client;
 
-import com.example.hotel_ishiraku.client.client;
 import com.example.hotel_ishiraku.mysqlconnect;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,6 +56,12 @@ public class ClientController implements Initializable {
     @FXML
     private TextField filterField;
 
+    @FXML
+    private Button btn_accueil;
+
+    @FXML
+    private Button btn_reserver;
+
     ObservableList<client> listM;
     ObservableList<client> dataList;
 
@@ -80,7 +91,6 @@ public class ClientController implements Initializable {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
 
     //////// methode select lavage ///////
     @FXML
@@ -113,7 +123,6 @@ public class ClientController implements Initializable {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
 
     public void Delete() {
@@ -129,7 +138,6 @@ public class ClientController implements Initializable {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
 
     public void UpdateTable() {
@@ -142,10 +150,6 @@ public class ClientController implements Initializable {
         table_client.setItems(listM);
     }
 
-    //
-//
-//
-//
 //    @FXML
 //    void search_client() {
 //        col_id.setCellValueFactory(new PropertyValueFactory<client, Integer>("id"));
@@ -181,7 +185,6 @@ public class ClientController implements Initializable {
 //        sortedData.comparatorProperty().bind(table_client.comparatorProperty());
 //        table_client.setItems(sortedData);
 //    }
-//
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -189,10 +192,22 @@ public class ClientController implements Initializable {
 //    search_dispo();
     }
 
-    public void sommaireR(ActionEvent actionEvent) {
+    public void sommaire(ActionEvent actionEvent) throws IOException {
+        btn_accueil.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/SommaireReceptionniste.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
 
+    public void reserver_place(ActionEvent actionEvent) throws IOException {
+        btn_reserver.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/Disponibilites.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
     }
 
 }
-
-

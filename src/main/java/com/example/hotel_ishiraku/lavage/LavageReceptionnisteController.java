@@ -6,14 +6,20 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -64,6 +70,9 @@ public class LavageReceptionnisteController implements Initializable {
 
     @FXML
     private TextField filterField;
+
+    @FXML
+    private Button btn_accueil;
 
     ObservableList<lavage> listM;
     ObservableList<lavage> dataList;
@@ -215,8 +224,13 @@ public class LavageReceptionnisteController implements Initializable {
         // Code Source in description
     }
 
-    public void sommaireR(ActionEvent actionEvent) {
-
+    public void sommaireR(ActionEvent actionEvent) throws IOException {
+        btn_accueil.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/SommaireReceptionniste.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
     }
 
 }

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import com.example.hotel_ishiraku.mysqlconnect;
@@ -62,12 +63,21 @@ public class LoginController implements Initializable {
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null, "Connexion réussie");
 
-                btn_login.getScene().getWindow().hide();
-                Parent root = FXMLLoader.load(getClass().getResource("Client.fxml"));
-                Stage mainStage = new Stage();
-                Scene scene = new Scene(root);
-                mainStage.setScene(scene);
-                mainStage.show();
+                if (Objects.equals(role.getValue().toString(), "receptionniste")) {
+                    btn_login.getScene().getWindow().hide();
+                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/SommaireReceptionniste.fxml"));
+                    Stage mainStage = new Stage();
+                    Scene scene = new Scene(root);
+                    mainStage.setScene(scene);
+                    mainStage.show();
+                } else if (Objects.equals(role.getValue().toString(), "laveur")) {
+                    btn_login.getScene().getWindow().hide();
+                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/SommaireLaveur.fxml"));
+                    Stage mainStage = new Stage();
+                    Scene scene = new Scene(root);
+                    mainStage.setScene(scene);
+                    mainStage.show();
+                }
 
             } else
                 JOptionPane.showMessageDialog(null, "Identifiant ou login incorrect");

@@ -12,8 +12,8 @@ public class Hotel_Ishiraku extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 //        Parent root = FXMLLoader.load(getClass().getResource("Disponibilites.fxml"));
-//        Parent root = FXMLLoader.load(getClass().getResource("LavageLaveur.fxml"));
-//        Parent root = FXMLLoader.load(getClass().getResource("LavageReceptionniste.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("ConsulterLavageLaveur.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("ConsulterLavageReceptionniste.fxml"));
 //        Parent root = FXMLLoader.load(getClass().getResource("Client.fxml"));
 
         Scene scene = new Scene(root);

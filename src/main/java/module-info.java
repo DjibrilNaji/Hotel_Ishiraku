@@ -21,4 +21,6 @@ module com.example.hotel_ishiraku {
     opens com.example.hotel_ishiraku.sommaire to javafx.fxml;
     exports com.example.hotel_ishiraku.login;
     opens com.example.hotel_ishiraku.login to javafx.fxml;
+    exports com.example.hotel_ishiraku.reservation_place;
+    opens com.example.hotel_ishiraku.reservation_place to javafx.fxml;
 }

@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0"
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0"
             prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_ishiraku.login.LoginController">
     <children>
-        <AnchorPane fx:id="pane_login" layoutY="152.0" prefHeight="305.0" prefWidth="500.0"
-                    AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <AnchorPane fx:id="pane_login" layoutY="67.0" prefHeight="305.0" prefWidth="500.0"
+                    AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
                 <TextField fx:id="txt_login" layoutX="27.0" layoutY="90.0" prefHeight="44.0" prefWidth="320.0"
                            promptText="LOGIN">
@@ -41,7 +39,7 @@
                 </Button>
             </children>
         </AnchorPane>
-        <VBox layoutX="420.0" prefHeight="465.0" prefWidth="79.0" style="-fx-background-color: #385898;"/>
+        <VBox layoutX="420.0" prefHeight="369.0" prefWidth="79.0" style="-fx-background-color: #385898;"/>
         <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="72.0" layoutY="14.0" prefHeight="53.0"
                prefWidth="305.0" text="Hotel Ichiraku" textFill="#0d0d0c">
             <font>

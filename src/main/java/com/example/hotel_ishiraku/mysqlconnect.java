@@ -2,6 +2,7 @@ package com.example.hotel_ishiraku;
 
 //import com.example.hotel_ishiraku.client.client.client;
 //import com.example.hotel_ishiraku.lavage.lavage.lavage;
+
 import com.example.hotel_ishiraku.client.client;
 import com.example.hotel_ishiraku.disponibilite.disponibilite;
 import com.example.hotel_ishiraku.lavage.lavage;
@@ -39,7 +40,7 @@ public class mysqlconnect {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                listLavage.add(new lavage(Integer.parseInt(rs.getString("id")), Integer.parseInt(rs.getString("laveur")), rs.getString("date"), rs.getString("heure"), rs.getString("voiture"), rs.getString("commentaire")));
+                listLavage.add(new lavage(rs.getInt("id"), rs.getInt("laveur"), rs.getString("date"), rs.getString("heure"), rs.getString("voiture"), rs.getString("commentaire")));
             }
         } catch (Exception ignored) {
         }
