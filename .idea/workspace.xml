@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ead35078-17dd-488b-8d76-eaed172d85ac" name="Changes" comment="envoie">
+      <change beforePath="$PROJECT_DIR$/../../Hotel_Ishiraku/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Hotel_Ishiraku/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="e926ecd7-6d63-44d4-ac13-98010740fb96" />
+        <option name="url" value="https://github.com/DjibrilNaji/yesyLaravel.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProjectId" id="24C9LON0Ejofy1x01giE1ZT86sH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Djibril\OneDrive\Documents\Workspace\Hotel_Ishiraku\src\main\resources\com\example\hotel_ishiraku" />
+      <recent name="C:\Users\Djibril\OneDrive\Documents\Workspace\Hotel_Ishiraku\src\main\java\com\example\hotel_ishiraku" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Djibril\OneDrive\Documents\Workspace\Hotel_Ishiraku\src\main\resources\com\example\hotel_ishiraku\fxml" />
+      <recent name="C:\Users\Djibril\OneDrive\Documents\Workspace\Hotel_Ishiraku\src\main\resources\com\example\hotel_ishiraku" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.hotel_ishiraku" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.hotel_ishiraku" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Hotel_Ishiraku" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.hotel_ishiraku.Hotel_Ishiraku" />
+      <module name="Hotel_Ishiraku" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.hotel_ishiraku.disponibilite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Hotel_Ishiraku" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ead35078-17dd-488b-8d76-eaed172d85ac" name="Changes" comment="" />
+      <created>1643123645903</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1643123645903</updated>
+      <workItem from="1643123647412" duration="2358000" />
+      <workItem from="1643153720529" duration="563000" />
+      <workItem from="1643154354651" duration="967000" />
+      <workItem from="1643155712613" duration="691000" />
+      <workItem from="1643156446730" duration="239000" />
+      <workItem from="1643186789778" duration="2077000" />
+    </task>
+    <task id="LOCAL-00001" summary="envoie">
+      <created>1643155903646</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1643155903646</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="envoie" />
+    <option name="LAST_COMMIT_MESSAGE" value="envoie" />
+  </component>
+</project>
