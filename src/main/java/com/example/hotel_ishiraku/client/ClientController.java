@@ -74,7 +74,7 @@ public class ClientController implements Initializable {
 
     public void Add_client() {
         conn = mysqlconnect.ConnectDb();
-        String sql = "insert into client(nom,prenom, numero_telephone) values (?,?,?)";
+        String sql = "insert into ishiraku_client(nom,prenom, numero_telephone) values (?,?,?)";
 
         try {
             pst = conn.prepareStatement(sql);
@@ -113,7 +113,7 @@ public class ClientController implements Initializable {
             String value3 = txt_prenom.getText();
             String value4 = txt_numero.getText();
 
-            String sql = "update client set nom= '" + value2 + "',prenom= '" + value3 + "',numero_telephone= '" +
+            String sql = "update ishiraku_client set nom= '" + value2 + "',prenom= '" + value3 + "',numero_telephone= '" +
                     value4 + "' where id= '" + value1 + "' ";
             pst = conn.prepareStatement(sql);
             pst.execute();
@@ -127,7 +127,7 @@ public class ClientController implements Initializable {
 
     public void Delete() {
         conn = mysqlconnect.ConnectDb();
-        String sql = "delete from client where id= ? ";
+        String sql = "delete from ishiraku_client where id= ? ";
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, txt_id.getText());

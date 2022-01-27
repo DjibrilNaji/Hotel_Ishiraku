@@ -87,7 +87,7 @@ public class LavageReceptionnisteController implements Initializable {
 
     public void Add_lavage() {
         conn = mysqlconnect.ConnectDb();
-        String sql = "insert into lavage(laveur,date, heure,voiture,commentaire) values (?,?,?,?,?)";
+        String sql = "insert into ishiraku_lavage(laveur,date, heure,voiture,commentaire) values (?,?,?,?,?)";
 
         try {
             pst = conn.prepareStatement(sql);
@@ -134,7 +134,7 @@ public class LavageReceptionnisteController implements Initializable {
             String value5 = txt_voiture.getText();
             String value6 = txt_commentaire.getText();
 
-            String sql = "update lavage set id='" + value1 + "', laveur= '" + value2 + "',date= '" + value3 + "',heure= '" +
+            String sql = "update ishiraku_lavage set id='" + value1 + "', laveur= '" + value2 + "',date= '" + value3 + "',heure= '" +
                     value4 + "',voiture= '" + value5 + "',commentaire= '" + value6 + "' where id= '" + value1 + "' ";
 
             pst = conn.prepareStatement(sql);
@@ -151,7 +151,7 @@ public class LavageReceptionnisteController implements Initializable {
 
     public void Delete() {
         conn = mysqlconnect.ConnectDb();
-        String sql = "delete from lavage where id= ? ";
+        String sql = "delete from ishiraku_lavage where id= ? ";
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, txt_id.getText());

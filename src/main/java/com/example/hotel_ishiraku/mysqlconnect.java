@@ -23,7 +23,7 @@ public class mysqlconnect {
     public static Connection ConnectDb() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelishiraku", "root", "root");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://sio-hautil.eu/najid", "najid", "Djibs785");
 
             return conn;
         } catch (Exception e) {
@@ -36,7 +36,7 @@ public class mysqlconnect {
         Connection conn = ConnectDb();
         ObservableList<lavage> listLavage = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from lavage");
+            PreparedStatement ps = conn.prepareStatement("select * from ishiraku_lavage");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -51,7 +51,7 @@ public class mysqlconnect {
         Connection conn = ConnectDb();
         ObservableList<disponibilite> listPlace = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from place");
+            PreparedStatement ps = conn.prepareStatement("select * from ishiraku_place");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -73,7 +73,7 @@ public class mysqlconnect {
         Connection conn = ConnectDb();
         ObservableList<client> listClient = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from client");
+            PreparedStatement ps = conn.prepareStatement("select * from ishiraku_client");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {

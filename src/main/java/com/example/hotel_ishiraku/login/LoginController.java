@@ -52,7 +52,7 @@ public class LoginController implements Initializable {
     @FXML
     private void Login(ActionEvent event) throws Exception {
         conn = mysqlconnect.ConnectDb();
-        String sql = "Select * from employes where role = ? and login = ? and mdp = ? ";
+        String sql = "Select * from ishiraku_employes where role = ? and login = ? and mdp = ? ";
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, role.getValue().toString());

@@ -110,7 +110,7 @@ public class DisponibilteController implements Initializable {
             String value2 = txt_disponibilite.getText();
             String value3 = txt_client.getText();
 
-            String sql = "update place set disponibilite= '" + value2 + "',client= '" + value3 + "' where id= '" + value1 + "' ";
+            String sql = "update ishiraku_place set disponibilite= '" + value2 + "',client= '" + value3 + "' where id= '" + value1 + "' ";
 
             pst = conn.prepareStatement(sql);
 
