@@ -51,17 +51,17 @@ public class mysqlconnect {
         Connection conn = ConnectDb();
         ObservableList<disponibilite> listPlace = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from ishiraku_place");
+            PreparedStatement ps = conn.prepareStatement("select p.*, c.nom from ishiraku_place p, ishiraku_client c where p.id_client=c.id");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 listPlace.add(new disponibilite(rs.getInt("id"),
                         rs.getInt("etage"),
                         rs.getInt("numParking"),
-                        rs.getString("disponibilite"),
                         rs.getInt("categorie"),
                         rs.getInt("typevoiture"),
-                        rs.getInt("client")));
+                        rs.getInt("id_client"),
+                        rs.getString("nom")));
             }
         } catch (Exception e) {
             System.out.println(e);

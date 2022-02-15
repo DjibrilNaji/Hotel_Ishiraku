@@ -2,8 +2,8 @@ package com.example.hotel_ishiraku.disponibilite;
 
 public class disponibilite {
 
-    int id, etage, numParking, categorie, typevoiture, client;
-    String disponibilite;
+    int id, etage, numParking, categorie, typevoiture, id_client;
+    String nom;
 
     public int getId() {
         return id;
@@ -45,30 +45,30 @@ public class disponibilite {
         this.typevoiture = typevoiture;
     }
 
-    public int getClient() {
-        return client;
+    public String getNom() {
+        return nom;
     }
 
-    public void setClient(int client) {
-        this.client = client;
+    public void setNon(String nom) {
+        this.nom = nom;
     }
 
-    public String getDisponibilite() {
-        return disponibilite;
+    public int getId_client() {
+        return id_client;
     }
 
-    public void setDisponibilite(String disponibilite) {
-        this.disponibilite = disponibilite;
+    public void setId_client(int id_client) {
+        this.id_client = id_client;
     }
 
-    public disponibilite(int id, int etage, int numParking, String disponibilite, int categorie, int typevoiture, int client) {
+    public disponibilite(int id, int etage, int numParking, int categorie, int typevoiture, int id_client, String nom) {
         this.id = id;
         this.etage = etage;
         this.numParking = numParking;
         this.categorie = categorie;
         this.typevoiture = typevoiture;
-        this.client = client;
-        this.disponibilite = disponibilite;
+        this.id_client = id_client;
+        this.nom = nom;
     }
 
 }

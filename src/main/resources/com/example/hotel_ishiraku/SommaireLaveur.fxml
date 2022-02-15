@@ -23,12 +23,12 @@
                 <Font size="18.0"/>
             </font>
         </Text>
-        <Button layoutX="42.0" layoutY="84.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="366.0"
-                text="Accéder à l'emploi du temps">
-            <font>
-                <Font size="20.0"/>
-            </font>
-        </Button>
+<!--        <Button layoutX="42.0" layoutY="84.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="366.0"-->
+<!--                text="Accéder à l'emploi du temps">-->
+<!--            <font>-->
+<!--                <Font size="20.0"/>-->
+<!--            </font>-->
+<!--        </Button>-->
         <Button fx:id="btn_consulter_lavage" layoutX="42.0" layoutY="143.0" mnemonicParsing="false" onAction="#lavage"
                 prefHeight="44.0" prefWidth="366.0" text="Consulter les réservations">
             <font>

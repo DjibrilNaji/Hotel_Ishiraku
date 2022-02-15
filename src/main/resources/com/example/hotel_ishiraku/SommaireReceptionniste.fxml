@@ -29,11 +29,11 @@
                 <Font size="20.0" />
             </font>
         </Button>
-        <Button fx:id="btn_reserver_lavage" layoutX="42.0" layoutY="132.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="366.0" text="Réserver un lavage">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Button>
+<!--        <Button fx:id="btn_reserver_lavage" layoutX="42.0" layoutY="132.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="366.0" text="Réserver un lavage">-->
+<!--            <font>-->
+<!--                <Font size="20.0" />-->
+<!--            </font>-->
+<!--        </Button>-->
         <VBox layoutX="493.0" prefHeight="382.0" prefWidth="36.0" style="-fx-background-color: #385898;" />
         <Button fx:id="btn_consulter_client" layoutX="42.0" layoutY="67.0" mnemonicParsing="false" onAction="#consulter_client" prefHeight="44.0" prefWidth="366.0" text="Consulter les clients">
             <font>

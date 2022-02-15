@@ -40,16 +40,16 @@ public class DisponibilteController implements Initializable {
     private TableColumn<disponibilite, Integer> col_numParking;
 
     @FXML
-    private TableColumn<disponibilite, String> col_disponibilite;
-
-    @FXML
     private TableColumn<disponibilite, Integer> col_categorie;
 
     @FXML
     private TableColumn<disponibilite, Integer> col_typeVoiture;
 
     @FXML
-    private TableColumn<disponibilite, Integer> col_client;
+    private TableColumn<disponibilite, Integer> col_idClient;
+
+    @FXML
+    private TableColumn<disponibilite, String> col_client;
 
     @FXML
     private TextField txt_id;
@@ -59,9 +59,6 @@ public class DisponibilteController implements Initializable {
 
     @FXML
     private TextField txt_numParking;
-
-    @FXML
-    private TextField txt_disponibilite;
 
     @FXML
     private TextField txt_typeVoiture;
@@ -98,8 +95,7 @@ public class DisponibilteController implements Initializable {
             return;
         }
         txt_id.setText(col_id.getCellData(index).toString());
-        txt_disponibilite.setText(col_disponibilite.getCellData(index).toString());
-        txt_client.setText(col_client.getCellData(index).toString());
+        txt_client.setText(col_idClient.getCellData(index).toString());
 
     }
 
@@ -107,10 +103,9 @@ public class DisponibilteController implements Initializable {
         try {
             conn = com.example.hotel_ishiraku.mysqlconnect.ConnectDb();
             String value1 = txt_id.getText();
-            String value2 = txt_disponibilite.getText();
-            String value3 = txt_client.getText();
+            String value2 = txt_client.getText();
 
-            String sql = "update ishiraku_place set disponibilite= '" + value2 + "',client= '" + value3 + "' where id= '" + value1 + "' ";
+            String sql = "update ishiraku_place set id_client= '" + value2 + "' where id= '" + value1 + "' ";
 
             pst = conn.prepareStatement(sql);
 
@@ -128,10 +123,10 @@ public class DisponibilteController implements Initializable {
         col_id.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("id"));
         col_etage.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("etage"));
         col_numParking.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("numParking"));
-        col_disponibilite.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("disponibilite"));
         col_categorie.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("categorie"));
         col_typeVoiture.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("typevoiture"));
-        col_client.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("client"));
+        col_idClient.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("id_client"));
+        col_client.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("nom"));
 
         listM = com.example.hotel_ishiraku.mysqlconnect.getDataPlace();
 
@@ -146,7 +141,7 @@ public class DisponibilteController implements Initializable {
 //        col_disponibilite.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, String>("disponibilite"));
 //        col_categorie.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, Integer>("categorie"));
 //        col_typeVoiture.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, Integer>("typevoiture"));
-//        col_client.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, Integer>("client"));
+//        col_idClient.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, Integer>("client"));
 //
 //        dataList = com.example.lavage_laveur.mysqlconnect.getDataPlace();
 //
