@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0"
+            prefWidth="662.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.hotel_ishiraku.reservation.ReservationController">
+    <AnchorPane prefHeight="435.0" prefWidth="276.0" style="-fx-background-color: #385898;">
+        <Button fx:id="btn_accueil" layoutX="69.0" layoutY="307.0" mnemonicParsing="false" onAction="#sommaire"
+                prefHeight="41.0" prefWidth="140.0"
+                style="-fx-background-color: #ffffff; -fx-border-color: #385898;" text="Accueil"
+                textFill="#385898">
+            <font>
+                <Font name="System Bold" size="18.0"/>
+            </font>
+        </Button>
+        <TextField fx:id="txt_place" layoutX="34.0" layoutY="229.0" nodeOrientation="LEFT_TO_RIGHT"
+                   prefHeight="39.0" prefWidth="209.0" promptText="Numéro place de parking "/>
+        <TextField fx:id="txt_id" layoutX="34.0" layoutY="27.0" nodeOrientation="LEFT_TO_RIGHT"
+                   prefHeight="39.0" prefWidth="209.0" promptText="ID"/>
+        <TextField fx:id="date_entree" layoutX="35.0" layoutY="91.0" nodeOrientation="LEFT_TO_RIGHT"
+                   prefHeight="39.0" prefWidth="209.0" promptText="Date d'arrivée (yyyy-mm-dd)"/>
+        <TextField fx:id="date_sortie" layoutX="34.0" layoutY="160.0" nodeOrientation="LEFT_TO_RIGHT"
+                   prefHeight="39.0" prefWidth="209.0" promptText="Date de sortie (yyyyy-mm-dd)"/>
+    </AnchorPane>
+    <Label layoutX="391.0" layoutY="23.0" prefHeight="45.0" prefWidth="168.0" text="Réservation">
+        <font>
+            <Font name="System Bold" size="30.0"/>
+        </font>
+    </Label>
+    <Button layoutX="300.0" layoutY="381.0" mnemonicParsing="false" onAction="#Add_reservation" prefHeight="41.0"
+            prefWidth="99.0" style="-fx-background-color: #ffffff; -fx-border-color: #76e10d;" text="Réserver"
+            textFill="#76e10d">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="406.0" layoutY="381.0" mnemonicParsing="false" onAction="#Edit" prefHeight="41.0"
+            prefWidth="106.0" style="-fx-background-color: #ffffff; -fx-border-color: Orange;" text="Modifier"
+            textFill="Orange">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="518.0" layoutY="381.0" mnemonicParsing="false" onAction="#Delete" prefHeight="41.0"
+            prefWidth="117.0" style="-fx-background-color: #ffffff; -fx-border-color: #f41818;" text="Supprimer"
+            textFill="#f41818">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Button>
+    <TableView fx:id="table_reservation" layoutX="292.0" layoutY="82.0" onMouseClicked="#getSelected"
+               prefHeight="289.0" prefWidth="350.0">
+        <columns>
+            <TableColumn fx:id="col_id" minWidth="3.0" prefWidth="48.0" text="ID"/>
+            <TableColumn fx:id="col_date_arrivee" prefWidth="127.0" text="Date D'arrivée"/>
+            <TableColumn fx:id="col_date_sortie" prefWidth="122.0" text="Date de sortie"/>
+            <TableColumn fx:id="col_place" minWidth="0.0" prefWidth="51.0" text="Place"/>
+        </columns>
+    </TableView>
+</AnchorPane>

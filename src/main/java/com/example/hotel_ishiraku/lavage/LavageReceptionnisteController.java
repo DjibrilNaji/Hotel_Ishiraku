@@ -177,10 +177,6 @@ public class LavageReceptionnisteController implements Initializable {
         table_lavage.setItems(listM);
     }
 
-    //
-//
-//
-//
     @FXML
     void search_user() {
         col_id.setCellValueFactory(new PropertyValueFactory<lavage, Integer>("id"));

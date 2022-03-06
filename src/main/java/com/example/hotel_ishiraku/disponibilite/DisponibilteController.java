@@ -40,10 +40,10 @@ public class DisponibilteController implements Initializable {
     private TableColumn<disponibilite, Integer> col_numParking;
 
     @FXML
-    private TableColumn<disponibilite, Integer> col_categorie;
+    private TableColumn<disponibilite, String> col_categorie;
 
     @FXML
-    private TableColumn<disponibilite, Integer> col_typeVoiture;
+    private TableColumn<disponibilite, String> col_typeVoiture;
 
     @FXML
     private TableColumn<disponibilite, Integer> col_idClient;
@@ -54,17 +54,17 @@ public class DisponibilteController implements Initializable {
     @FXML
     private TextField txt_id;
 
-    @FXML
-    private TextField txt_etage;
-
-    @FXML
-    private TextField txt_numParking;
-
-    @FXML
-    private TextField txt_typeVoiture;
-
-    @FXML
-    private TextField txt_categorie;
+//    @FXML
+//    private TextField txt_etage;
+//
+//    @FXML
+//    private TextField txt_numParking;
+//
+//    @FXML
+//    private TextField txt_typeVoiture;
+//
+//    @FXML
+//    private TextField txt_categorie;
 
     @FXML
     private TextField txt_client;
@@ -123,8 +123,8 @@ public class DisponibilteController implements Initializable {
         col_id.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("id"));
         col_etage.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("etage"));
         col_numParking.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("numParking"));
-        col_categorie.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("categorie"));
-        col_typeVoiture.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("typevoiture"));
+        col_categorie.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("categorie"));
+        col_typeVoiture.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("typevoiture"));
         col_idClient.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("id_client"));
         col_client.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("nom"));
 

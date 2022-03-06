@@ -22,12 +22,24 @@ public class SommaireReceptionnisteController {
     private Button btn_consulter_place;
 
     @FXML
+    private Button btn_consulter_reservation;
+
+    @FXML
     private Button btn_deconnexion;
 
 
     public void consulter_client(ActionEvent actionEvent) throws IOException {
         btn_consulter_client.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/Client.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+    public void consulter_reservation(ActionEvent actionEvent) throws IOException {
+        btn_consulter_reservation.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/Reservation.fxml"));
         Stage mainStage = new Stage();
         Scene scene = new Scene(root);
         mainStage.setScene(scene);

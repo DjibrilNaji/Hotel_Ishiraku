@@ -9,56 +9,69 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_ishiraku.disponibilite.DisponibilteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0"
+            prefWidth="749.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.hotel_ishiraku.disponibilite.DisponibilteController">
     <children>
-        <AnchorPane layoutX="-7.0" prefHeight="543.0" prefWidth="228.0" style="-fx-background-color: #385898;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane layoutX="-7.0" prefHeight="543.0" prefWidth="228.0" style="-fx-background-color: #385898;"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.topAnchor="0.0">
             <children>
-                <TextField fx:id="txt_id" layoutX="24.0" layoutY="41.0" prefHeight="24.0" prefWidth="165.0" promptText="ID">
+                <TextField fx:id="txt_id" layoutX="24.0" layoutY="41.0" prefHeight="24.0" prefWidth="165.0"
+                           promptText="ID">
                     <font>
-                        <Font size="20.0" />
+                        <Font size="20.0"/>
                     </font>
                 </TextField>
-                <TextField fx:id="txt_client" layoutX="24.0" layoutY="102.0" prefHeight="44.0" prefWidth="165.0" promptText="Client">
+                <TextField fx:id="txt_client" layoutX="24.0" layoutY="102.0" prefHeight="44.0" prefWidth="165.0"
+                           promptText="Client">
                     <font>
-                        <Font size="22.0" />
+                        <Font size="22.0"/>
                     </font>
                 </TextField>
-                <Button layoutX="37.0" layoutY="191.0" mnemonicParsing="false" onAction="#Edit" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: Orange;" text="Modifier" textFill="Orange">
+                <Button layoutX="37.0" layoutY="191.0" mnemonicParsing="false" onAction="#Edit" prefHeight="41.0"
+                        prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: Orange;"
+                        text="Modifier" textFill="Orange">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="18.0"/>
                     </font>
                 </Button>
-                <Button fx:id="btn_accueil" layoutX="37.0" layoutY="379.0" mnemonicParsing="false" onAction="#sommaire" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: #385898;" text="Accueil" textFill="#385898">
+                <Button fx:id="btn_accueil" layoutX="37.0" layoutY="379.0" mnemonicParsing="false" onAction="#sommaire"
+                        prefHeight="41.0" prefWidth="140.0"
+                        style="-fx-background-color: #ffffff; -fx-border-color: #385898;" text="Accueil"
+                        textFill="#385898">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="18.0"/>
                     </font>
                 </Button>
             </children>
         </AnchorPane>
-        <TableView fx:id="table_disponibilite" layoutX="233.0" layoutY="150.0" onMouseClicked="#getSelected" prefHeight="289.0" prefWidth="497.0">
+        <TableView fx:id="table_disponibilite" layoutX="233.0" layoutY="150.0" onMouseClicked="#getSelected"
+                   prefHeight="289.0" prefWidth="497.0">
             <columns>
-                <TableColumn fx:id="col_id" minWidth="3.0" prefWidth="27.0" text="ID" />
-                <TableColumn fx:id="col_etage" minWidth="3.0" prefWidth="49.0" text="Etage" />
-                <TableColumn fx:id="col_numParking" prefWidth="82.0" text="NumParking" />
-                <TableColumn fx:id="col_categorie" minWidth="0.0" prefWidth="88.0" text="Catégorie" />
-                <TableColumn fx:id="col_typeVoiture" prefWidth="85.0" text="Type Voiture" />
-                <TableColumn fx:id="col_idClient" minWidth="0.0" prefWidth="64.0" text="Id Client" />
-            <TableColumn fx:id="col_client" minWidth="0.0" prefWidth="99.0" text="Client" />
+                <TableColumn fx:id="col_id" minWidth="3.0" prefWidth="27.0" text="ID"/>
+                <TableColumn fx:id="col_etage" minWidth="3.0" prefWidth="49.0" text="Etage"/>
+                <TableColumn fx:id="col_numParking" prefWidth="82.0" text="NumParking"/>
+                <TableColumn fx:id="col_categorie" minWidth="0.0" prefWidth="88.0" text="Catégorie"/>
+                <TableColumn fx:id="col_typeVoiture" prefWidth="85.0" text="Type Voiture"/>
+                <TableColumn fx:id="col_idClient" minWidth="0.0" prefWidth="64.0" text="Id Client"/>
+                <TableColumn fx:id="col_client" minWidth="0.0" prefWidth="99.0" text="Client"/>
             </columns>
         </TableView>
-        <TextField fx:id="filterField" alignment="CENTER" layoutX="407.0" layoutY="79.0" prefHeight="41.0" prefWidth="149.0" promptText="Etage">
+        <TextField fx:id="filterField" alignment="CENTER" layoutX="407.0" layoutY="79.0" prefHeight="41.0"
+                   prefWidth="149.0" promptText="Etage">
             <font>
-                <Font size="20.0" />
+                <Font size="20.0"/>
             </font>
         </TextField>
-        <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="390.0" layoutY="26.0" prefHeight="53.0" prefWidth="183.0" text="Disponibiltés" textFill="#0d0d0c">
+        <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="390.0" layoutY="26.0" prefHeight="53.0"
+               prefWidth="183.0" text="Disponibiltés" textFill="#0d0d0c">
             <font>
-                <Font size="28.0" />
+                <Font size="28.0"/>
             </font>
         </Label>
         <Text layoutX="617.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receptionniste">
             <font>
-                <Font size="18.0" />
+                <Font size="18.0"/>
             </font>
         </Text>
     </children>

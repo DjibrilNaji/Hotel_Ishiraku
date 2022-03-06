@@ -1,11 +1,9 @@
 package com.example.hotel_ishiraku;
 
-//import com.example.hotel_ishiraku.client.client.client;
-//import com.example.hotel_ishiraku.lavage.lavage.lavage;
-
 import com.example.hotel_ishiraku.client.client;
 import com.example.hotel_ishiraku.disponibilite.disponibilite;
 import com.example.hotel_ishiraku.lavage.lavage;
+import com.example.hotel_ishiraku.reservation.reservation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -51,15 +49,18 @@ public class mysqlconnect {
         Connection conn = ConnectDb();
         ObservableList<disponibilite> listPlace = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = conn.prepareStatement("select p.*, c.nom from ishiraku_place p, ishiraku_client c where p.id_client=c.id");
+            PreparedStatement ps = conn.prepareStatement("select p.id, p.etage, p.numParking, p.id_client, c.nom, cat.categorie, t.typevoiture\n" +
+                    "from ishiraku_place p, ishiraku_client c, ishiraku_categorie cat, ishiraku_typevoiture t\n" +
+                    "where p.id_client=c.id and p.categorie=cat.id and p.typevoiture=t.id_type ORDER BY id ");
             ResultSet rs = ps.executeQuery();
+
 
             while (rs.next()) {
                 listPlace.add(new disponibilite(rs.getInt("id"),
                         rs.getInt("etage"),
                         rs.getInt("numParking"),
-                        rs.getInt("categorie"),
-                        rs.getInt("typevoiture"),
+                        rs.getString("categorie"),
+                        rs.getString("typevoiture"),
                         rs.getInt("id_client"),
                         rs.getString("nom")));
             }
@@ -87,6 +88,26 @@ public class mysqlconnect {
             System.out.println(e);
         }
         return listClient;
+    }
+
+    public static ObservableList<reservation> getDataReservation() {
+        Connection conn = ConnectDb();
+        ObservableList<reservation> listReservation = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from ishiraku_reservation");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                listReservation.add(new reservation(
+                        rs.getInt("client"),
+                        rs.getString("dateEntree"),
+                        rs.getString("dateSortie"),
+                        rs.getInt("place")));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return listReservation;
     }
 
 }
