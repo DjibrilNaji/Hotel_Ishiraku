@@ -88,8 +88,6 @@ public class DisponibilteController implements Initializable {
     @FXML
     void getSelected(MouseEvent event) {
         index = table_disponibilite.getSelectionModel().getSelectedIndex();
-        index = table_disponibilite.getSelectionModel().getSelectedIndex();
-
 
         if (index <= -1) {
             return;

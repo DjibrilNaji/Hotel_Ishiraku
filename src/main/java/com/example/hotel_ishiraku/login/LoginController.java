@@ -61,8 +61,6 @@ public class LoginController implements Initializable {
 
             rs = pst.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Connexion réussie");
-
                 if (Objects.equals(role.getValue().toString(), "receptionniste")) {
                     btn_login.getScene().getWindow().hide();
                     Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/SommaireReceptionniste.fxml"));

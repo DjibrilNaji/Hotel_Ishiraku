@@ -2,6 +2,7 @@ package com.example.hotel_ishiraku.reservation;
 
 
 import com.example.hotel_ishiraku.mysqlconnect;
+import com.example.hotel_ishiraku.reservation.reservation;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,9 +47,6 @@ public class ReservationController implements Initializable {
     private Button btn_reservation;
 
     @FXML
-    private TextField txt_place;
-
-    @FXML
     private TextField txt_id;
 
     @FXML
@@ -56,6 +54,10 @@ public class ReservationController implements Initializable {
 
     @FXML
     private TextField date_sortie;
+
+    @FXML
+    private TextField txt_place;
+
 
     ObservableList<reservation> listM;
     ObservableList<reservation> dataList;
@@ -73,7 +75,6 @@ public class ReservationController implements Initializable {
         if (index <= -1) {
             return;
         }
-
         txt_id.setText(col_id.getCellData(index).toString());
         date_entree.setText(col_date_arrivee.getCellData(index).toString());
         date_sortie.setText(col_date_sortie.getCellData(index).toString());
@@ -89,8 +90,8 @@ public class ReservationController implements Initializable {
 
             pst.setString(1, txt_id.getText());
             pst.setString(2, date_entree.getText());
-            pst.setString(2, date_sortie.getText());
-            pst.setString(2, txt_place.getText());
+            pst.setString(3, date_sortie.getText());
+            pst.setString(4, txt_place.getText());
             pst.execute();
 
             JOptionPane.showMessageDialog(null, "Reservation ajouter avec succès");
@@ -103,7 +104,7 @@ public class ReservationController implements Initializable {
 
     public void Edit() {
         try {
-            conn = com.example.hotel_ishiraku.mysqlconnect.ConnectDb();
+            conn = mysqlconnect.ConnectDb();
             String value1 = txt_id.getText();
             String value2 = date_entree.getText();
             String value3 = date_sortie.getText();
@@ -111,13 +112,12 @@ public class ReservationController implements Initializable {
 
             String sql = "UPDATE `ishiraku_reservation` SET client='" + value1 + "', dateEntree= '" + value2 + "',dateSortie= '" + value3 + "',place= '" + value4 + "' " +
                     "where place= '" + value4 + "'";
+
             pst = conn.prepareStatement(sql);
-
-
             pst.execute();
+
             JOptionPane.showMessageDialog(null, "Modification effectuée avec succès");
             UpdateTable();
-//            search_dispo();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -141,11 +141,10 @@ public class ReservationController implements Initializable {
 
     public void UpdateTable() {
 
-        col_id.setCellValueFactory(new PropertyValueFactory<reservation, Integer>("id"));
+        col_id.setCellValueFactory(new PropertyValueFactory<reservation, Integer>("client"));
         col_date_arrivee.setCellValueFactory(new PropertyValueFactory<reservation, String>("dateEntree"));
         col_date_sortie.setCellValueFactory(new PropertyValueFactory<reservation, String>("dateSortie"));
         col_place.setCellValueFactory(new PropertyValueFactory<reservation, Integer>("place"));
-
 
         listM = mysqlconnect.getDataReservation();
         table_reservation.setItems(listM);
@@ -162,6 +161,6 @@ public class ReservationController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        UpdateTable();
     }
 }
