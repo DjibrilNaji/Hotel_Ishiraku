@@ -8,6 +8,7 @@ module com.example.hotel_ishiraku {
     requires javafx.graphics;
     requires java.desktop;
     requires java.sql;
+    requires mysql.connector.java;
 
     opens com.example.hotel_ishiraku to javafx.fxml;
     exports com.example.hotel_ishiraku;

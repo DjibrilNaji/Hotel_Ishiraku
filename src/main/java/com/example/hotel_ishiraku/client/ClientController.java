@@ -2,6 +2,8 @@ package com.example.hotel_ishiraku.client;
 
 import com.example.hotel_ishiraku.mysqlconnect;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -150,46 +152,42 @@ public class ClientController implements Initializable {
         table_client.setItems(listM);
     }
 
-//    @FXML
-//    void search_client() {
-//        col_id.setCellValueFactory(new PropertyValueFactory<client, Integer>("id"));
-//        col_nom.setCellValueFactory(new PropertyValueFactory<client, String>("nom"));
-//        col_prenom.setCellValueFactory(new PropertyValueFactory<client, String>("prenom"));
-//        col_numero.setCellValueFactory(new PropertyValueFactory<client, String>("numero_telephone"));
-//
-//        dataList = com.example.lavage_laveur.mysqlconnect.getDataClient();
-//        table_client.setItems(dataList);
-//        FilteredList<client> filteredData = new FilteredList<>(dataList, b -> true);
-//        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-//            filteredData.setPredicate(person -> {
-//                if (newValue == null || newValue.isEmpty()) {
-//                    return true;
-//                }
-//                String lowerCaseFilter = newValue.toLowerCase();
-//
-//                if (person.getHeure().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
-//                    return true; // Filter matches username
-//                } else if (person.getPassword().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-//                    return true; // Filter matches password
-//                }else if (person.getType().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-//                    return true; // Filter matches password
-//                }
-//                else if (String.valueOf(person.getEmail()).indexOf(lowerCaseFilter)!=-1)
-//                    return true;// Filter matches email
-//
-//                else
-//                    return false; // Does not match.
-//            });
-//        });
-//        SortedList<client> sortedData = new SortedList<>(filteredData);
-//        sortedData.comparatorProperty().bind(table_client.comparatorProperty());
-//        table_client.setItems(sortedData);
-//    }
+    @FXML
+    void search_client() {
+        col_id.setCellValueFactory(new PropertyValueFactory<client, Integer>("id"));
+        col_nom.setCellValueFactory(new PropertyValueFactory<client, String>("nom"));
+        col_prenom.setCellValueFactory(new PropertyValueFactory<client, String>("prenom"));
+        col_numero.setCellValueFactory(new PropertyValueFactory<client, String>("numero_telephone"));
+
+        dataList = com.example.hotel_ishiraku.mysqlconnect.getDataClient();
+
+        table_client.setItems(dataList);
+
+        FilteredList<client> filteredData = new FilteredList<>(dataList, b -> true);
+        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getNom().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches username
+                } else if (person.getPrenom().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches password
+                } else
+                    return false; // Does not match.
+            });
+        });
+        SortedList<client> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(table_client.comparatorProperty());
+        table_client.setItems(sortedData);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         UpdateTable();
-//    search_dispo();
+        search_client();
     }
 
     public void sommaire(ActionEvent actionEvent) throws IOException {

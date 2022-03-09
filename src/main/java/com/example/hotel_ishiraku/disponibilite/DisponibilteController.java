@@ -1,6 +1,8 @@
 package com.example.hotel_ishiraku.disponibilite;
 
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -130,52 +132,50 @@ public class DisponibilteController implements Initializable {
 
         table_disponibilite.setItems(listM);
     }
-//
-//    @FXML
-//    void search_dispo() {
-//        col_id.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, Integer>("id"));
-//        col_etage.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, Integer>("etage"));
-//        col_numParking.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, Integer>("numParking"));
-//        col_disponibilite.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, String>("disponibilite"));
-//        col_categorie.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, Integer>("categorie"));
-//        col_typeVoiture.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, Integer>("typevoiture"));
-//        col_idClient.setCellValueFactory(new PropertyValueFactory<com.example.lavage_laveur.disponibilite.disponibilite, Integer>("client"));
-//
-//        dataList = com.example.lavage_laveur.mysqlconnect.getDataPlace();
-//
-//        table_disponibilite.setItems(dataList);
-//
-//        FilteredList<com.example.lavage_laveur.disponibilite.disponibilite> filteredData = new FilteredList<>(dataList, b -> true);
-//        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-//            filteredData.setPredicate(place -> {
-//                if (newValue == null || newValue.isEmpty()) {
-//                    return true;
-//                }
-//                String lowerCaseFilter = newValue.toLowerCase();
-//
-//                if (place.getEtage().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-//                    return true; // Filter matches username
-//                } else if (place.getPassword().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-//                    return true; // Filter matches password
-//                } else if (place.getType().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-//                    return true; // Filter matches password
-//                } else if (String.valueOf(place.getEmail()).indexOf(lowerCaseFilter) != -1)
-//                    return true;// Filter matches email
-//
-//                else
-//                    return false; // Does not match.
-//            });
-//        });
-//        SortedList<com.example.lavage_laveur.disponibilite.disponibilite> sortedData = new SortedList<>(filteredData);
-//        sortedData.comparatorProperty().bind(table_disponibilite.comparatorProperty());
-//        table_disponibilite.setItems(sortedData);
-//    }
+
+    @FXML
+    void search_dispo() {
+        col_id.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("id"));
+        col_etage.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("etage"));
+        col_numParking.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("numParking"));
+        col_categorie.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("categorie"));
+        col_typeVoiture.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("typevoiture"));
+        col_idClient.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("client"));
+        col_client.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("nom"));
+
+        dataList = com.example.hotel_ishiraku.mysqlconnect.getDataPlace();
+
+        table_disponibilite.setItems(dataList);
+
+        FilteredList<disponibilite> filteredData = new FilteredList<>(dataList, b -> true);
+        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(place -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (String.valueOf(place.getEtage()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches password
+                } else if (place.getTypevoiture().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches password
+                } else if (place.getCategorie().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches password
+                } else
+                    return false; // Does not match.
+            });
+        });
+
+        SortedList<disponibilite> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(table_disponibilite.comparatorProperty());
+        table_disponibilite.setItems(sortedData);
+    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         UpdateTable();
-//    search_dispo();
+//        search_dispo();
         // Code Source in description
     }
 

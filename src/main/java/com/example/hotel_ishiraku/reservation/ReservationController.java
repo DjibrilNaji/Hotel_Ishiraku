@@ -50,10 +50,10 @@ public class ReservationController implements Initializable {
     private TextField txt_id;
 
     @FXML
-    private TextField date_entree;
+    private TextField dateArrivee;
 
     @FXML
-    private TextField date_sortie;
+    private TextField dateSortie;
 
     @FXML
     private TextField txt_place;
@@ -76,8 +76,8 @@ public class ReservationController implements Initializable {
             return;
         }
         txt_id.setText(col_id.getCellData(index).toString());
-        date_entree.setText(col_date_arrivee.getCellData(index).toString());
-        date_sortie.setText(col_date_sortie.getCellData(index).toString());
+        dateArrivee.setText(col_date_arrivee.getCellData(index).toString());
+        dateSortie.setText(col_date_sortie.getCellData(index).toString());
         txt_place.setText(col_place.getCellData(index).toString());
 
     }
@@ -86,11 +86,12 @@ public class ReservationController implements Initializable {
         conn = mysqlconnect.ConnectDb();
         String sql = "INSERT INTO `ishiraku_reservation` (`client`, `dateEntree`, `dateSortie`, `place`) VALUES (?,?,?,?);";
         try {
+            assert conn != null;
             pst = conn.prepareStatement(sql);
 
             pst.setString(1, txt_id.getText());
-            pst.setString(2, date_entree.getText());
-            pst.setString(3, date_sortie.getText());
+            pst.setString(2, dateArrivee.getText());
+            pst.setString(3, dateSortie.getText());
             pst.setString(4, txt_place.getText());
             pst.execute();
 
@@ -103,17 +104,16 @@ public class ReservationController implements Initializable {
     }
 
     public void Edit() {
+        conn = mysqlconnect.ConnectDb();
+        String sql = "UPDATE `ishiraku_reservation` SET client = ?, dateEntree = ?,dateSortie = ? ,place = ? where place = place";
+
         try {
-            conn = mysqlconnect.ConnectDb();
-            String value1 = txt_id.getText();
-            String value2 = date_entree.getText();
-            String value3 = date_sortie.getText();
-            String value4 = txt_place.getText();
-
-            String sql = "UPDATE `ishiraku_reservation` SET client='" + value1 + "', dateEntree= '" + value2 + "',dateSortie= '" + value3 + "',place= '" + value4 + "' " +
-                    "where place= '" + value4 + "'";
-
+            assert conn != null;
             pst = conn.prepareStatement(sql);
+            pst.setString(1, txt_id.getText());
+            pst.setString(2, dateArrivee.getText());
+            pst.setString(3, dateSortie.getText());
+            pst.setString(4, txt_place.getText());
             pst.execute();
 
             JOptionPane.showMessageDialog(null, "Modification effectuée avec succès");

@@ -34,6 +34,7 @@ public class mysqlconnect {
         Connection conn = ConnectDb();
         ObservableList<lavage> listLavage = FXCollections.observableArrayList();
         try {
+            assert conn != null;
             PreparedStatement ps = conn.prepareStatement("select * from ishiraku_lavage");
             ResultSet rs = ps.executeQuery();
 
@@ -49,6 +50,7 @@ public class mysqlconnect {
         Connection conn = ConnectDb();
         ObservableList<disponibilite> listPlace = FXCollections.observableArrayList();
         try {
+            assert conn != null;
             PreparedStatement ps = conn.prepareStatement("select p.id, p.etage, p.numParking, p.id_client, c.nom, cat.categorie, t.typevoiture\n" +
                     "from ishiraku_place p, ishiraku_client c, ishiraku_categorie cat, ishiraku_typevoiture t\n" +
                     "where p.id_client=c.id and p.categorie=cat.id and p.typevoiture=t.id_type ORDER BY id ");
@@ -74,6 +76,7 @@ public class mysqlconnect {
         Connection conn = ConnectDb();
         ObservableList<client> listClient = FXCollections.observableArrayList();
         try {
+            assert conn != null;
             PreparedStatement ps = conn.prepareStatement("select * from ishiraku_client");
             ResultSet rs = ps.executeQuery();
 
@@ -94,6 +97,7 @@ public class mysqlconnect {
         Connection conn = ConnectDb();
         ObservableList<reservation> listReservation = FXCollections.observableArrayList();
         try {
+            assert conn != null;
             PreparedStatement ps = conn.prepareStatement("select * from ishiraku_reservation");
             ResultSet rs = ps.executeQuery();
 
