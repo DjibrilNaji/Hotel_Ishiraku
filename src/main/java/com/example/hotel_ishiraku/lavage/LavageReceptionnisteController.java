@@ -83,12 +83,12 @@ public class LavageReceptionnisteController implements Initializable {
     PreparedStatement pst = null;
 
 
-
     public void Add_lavage() {
         conn = mysqlconnect.ConnectDb();
         String sql = "insert into ishiraku_lavage(laveur,date, heure,voiture,commentaire) values (?,?,?,?,?)";
 
         try {
+            assert conn != null;
             pst = conn.prepareStatement(sql);
             pst.setString(1, txt_laveur.getText());
             pst.setString(2, txt_date.getText());
@@ -124,19 +124,18 @@ public class LavageReceptionnisteController implements Initializable {
     }
 
     public void Edit() {
+        conn = mysqlconnect.ConnectDb();
+        String sql = "update ishiraku_lavage set id= ?, laveur= ?,date= ?,heure= ?,voiture= ?,commentaire= ? where id = id ";
+
         try {
-            conn = mysqlconnect.ConnectDb();
-            String value1 = txt_id.getText();
-            String value2 = txt_laveur.getText();
-            String value3 = txt_date.getText();
-            String value4 = txt_heure.getText();
-            String value5 = txt_voiture.getText();
-            String value6 = txt_commentaire.getText();
-
-            String sql = "update ishiraku_lavage set id='" + value1 + "', laveur= '" + value2 + "',date= '" + value3 + "',heure= '" +
-                    value4 + "',voiture= '" + value5 + "',commentaire= '" + value6 + "' where id= '" + value1 + "' ";
-
+            assert conn != null;
             pst = conn.prepareStatement(sql);
+            pst.setString(1, txt_id.getText());
+            pst.setString(2, txt_laveur.getText());
+            pst.setString(3, txt_date.getText());
+            pst.setString(4, txt_heure.getText());
+            pst.setString(5, txt_voiture.getText());
+            pst.setString(6, txt_commentaire.getText());
             pst.execute();
 
             JOptionPane.showMessageDialog(null, "Update");
