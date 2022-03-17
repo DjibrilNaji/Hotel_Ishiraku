@@ -38,7 +38,7 @@ public class mysqlconnect {
             PreparedStatement ps = conn.prepareStatement("select * from ishiraku_lavage");
             ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
+        while (rs.next()) {
                 listLavage.add(new lavage(rs.getInt("id"), rs.getInt("laveur"), rs.getString("date"), rs.getString("heure"), rs.getString("voiture"), rs.getString("commentaire")));
             }
         } catch (Exception ignored) {

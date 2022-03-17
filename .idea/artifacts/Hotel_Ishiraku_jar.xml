@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact name="Hotel_Ishiraku:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar</output-path>
+    <root id="root">
+      <element id="archive" name="Hotel_Ishiraku.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="Hotel_Ishiraku" />
+      </element>
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:16" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:16" />
+      <element id="file-copy" path="$PROJECT_DIR$/../../mysql-connector-java-8.0.26/mysql-connector-java-8.0.26.jar" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:win:16" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:16" />
+      <element id="library" level="project" name="Maven: com.dlsc.formsfx:formsfx-core:11.3.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:16" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:16" />
+      <element id="library" level="project" name="Maven: org.controlsfx:controlsfx:11.1.0" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:16" />
+      <element id="library" level="project" name="Maven: org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:16" />
+    </root>
+  </artifact>
+</component>
