@@ -73,15 +73,14 @@ public class ClientController implements Initializable {
     ResultSet rs = null;
     PreparedStatement pst = null;
 
-
     public void Add_client() {
         conn = mysqlconnect.ConnectDb();
-        String sql = "insert into ishiraku_client(nom,prenom, numero_telephone) values (?,?,?)";
+        String sql = "insert into ishiraku_client(nom,prenom,numero_telephone) values (?,?,?)";
 
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, txt_nom.getText());
-            pst.setString(2, txt_numero.getText());
+            pst.setString(2, txt_prenom.getText());
             pst.setString(3, txt_numero.getText());
 
             pst.execute();

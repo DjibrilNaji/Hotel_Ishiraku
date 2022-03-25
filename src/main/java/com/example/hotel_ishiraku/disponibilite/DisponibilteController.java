@@ -157,12 +157,10 @@ public class DisponibilteController implements Initializable {
 
                 if (String.valueOf(place.getEtage()).toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches password
-                } else if (place.getTypevoiture().toLowerCase().contains(lowerCaseFilter)) {
+                } else // Does not match.
+                    if (place.getTypevoiture().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches password
-                } else if (place.getCategorie().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches password
-                } else
-                    return false; // Does not match.
+                } else return place.getCategorie().toLowerCase().contains(lowerCaseFilter); // Filter matches password
             });
         });
 
@@ -176,7 +174,6 @@ public class DisponibilteController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         UpdateTable();
 //        search_dispo();
-        // Code Source in description
     }
 
     public void sommaire(ActionEvent actionEvent) throws IOException {
