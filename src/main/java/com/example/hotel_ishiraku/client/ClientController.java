@@ -73,6 +73,12 @@ public class ClientController implements Initializable {
     ResultSet rs = null;
     PreparedStatement pst = null;
 
+
+    @FXML
+    void clearEvent(ActionEvent event) {
+        clear();
+    }
+
     public void Add_client() {
         conn = mysqlconnect.ConnectDb();
         String sql = "insert into ishiraku_client(nom,prenom,numero_telephone) values (?,?,?)";
@@ -206,5 +212,13 @@ public class ClientController implements Initializable {
         mainStage.setScene(scene);
         mainStage.show();
     }
+
+    void clear() {
+        txt_id.setText(null);
+        txt_nom.setText(null);
+        txt_prenom.setText(null);
+        txt_numero.setText(null);
+    }
+
 
 }

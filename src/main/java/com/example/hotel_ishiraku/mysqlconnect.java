@@ -2,6 +2,7 @@ package com.example.hotel_ishiraku;
 
 import com.example.hotel_ishiraku.client.client;
 import com.example.hotel_ishiraku.disponibilite.disponibilite;
+import com.example.hotel_ishiraku.employes.employes;
 import com.example.hotel_ishiraku.lavage.lavage;
 import com.example.hotel_ishiraku.reservation.reservation;
 import javafx.collections.FXCollections;
@@ -35,11 +36,18 @@ public class mysqlconnect {
         ObservableList<lavage> listLavage = FXCollections.observableArrayList();
         try {
             assert conn != null;
-            PreparedStatement ps = conn.prepareStatement("select * from ishiraku_lavage");
+            PreparedStatement ps = conn.prepareStatement("select l.id, e.prenom, l.date, l.heure, l.voiture, l.commentaire\n" +
+                    "from ishiraku_lavage l, ishiraku_employes e\n" +
+                    "where l.laveur=e.id ORDER BY id");
             ResultSet rs = ps.executeQuery();
 
-        while (rs.next()) {
-                listLavage.add(new lavage(rs.getInt("id"), rs.getInt("laveur"), rs.getString("date"), rs.getString("heure"), rs.getString("voiture"), rs.getString("commentaire")));
+            while (rs.next()) {
+                listLavage.add(new lavage(rs.getInt("id"),
+                        rs.getString("prenom"),
+                        rs.getString("date"),
+                        rs.getString("heure"),
+                        rs.getString("voiture"),
+                        rs.getString("commentaire")));
             }
         } catch (Exception ignored) {
         }
@@ -91,6 +99,28 @@ public class mysqlconnect {
             System.out.println(e);
         }
         return listClient;
+    }
+
+    public static ObservableList<employes> getDataEmployes() {
+        Connection conn = ConnectDb();
+        ObservableList<employes> listEmployes = FXCollections.observableArrayList();
+        try {
+            assert conn != null;
+            PreparedStatement ps = conn.prepareStatement("select * from ishiraku_employes");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                listEmployes.add(new employes(
+                        rs.getInt("id"),
+                        rs.getString("role"),
+                        rs.getString("nom"),
+                        rs.getString("prenom"),
+                        rs.getString("login")));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return listEmployes;
     }
 
     public static ObservableList<reservation> getDataReservation() {

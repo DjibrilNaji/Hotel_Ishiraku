@@ -34,7 +34,7 @@ public class LavageReceptionnisteController implements Initializable {
     private TableColumn<lavage, Integer> col_id;
 
     @FXML
-    private TableColumn<lavage, Integer> col_laveur;
+    private TableColumn<lavage, String> col_laveur;
 
     @FXML
     private TableColumn<lavage, String> col_date;
@@ -170,7 +170,7 @@ public class LavageReceptionnisteController implements Initializable {
 
     public void UpdateTable() {
         col_id.setCellValueFactory(new PropertyValueFactory<lavage, Integer>("id"));
-        col_laveur.setCellValueFactory(new PropertyValueFactory<lavage, Integer>("laveur"));
+        col_laveur.setCellValueFactory(new PropertyValueFactory<lavage, String>("prenom"));
         col_date.setCellValueFactory(new PropertyValueFactory<lavage, String>("date"));
         col_heure.setCellValueFactory(new PropertyValueFactory<lavage, String>("heure"));
         col_voiture.setCellValueFactory(new PropertyValueFactory<lavage, String>("voiture"));
@@ -183,7 +183,7 @@ public class LavageReceptionnisteController implements Initializable {
     @FXML
     void search_user() {
         col_id.setCellValueFactory(new PropertyValueFactory<lavage, Integer>("id"));
-        col_laveur.setCellValueFactory(new PropertyValueFactory<lavage, Integer>("laveur"));
+        col_laveur.setCellValueFactory(new PropertyValueFactory<lavage, String>("prenom"));
         col_date.setCellValueFactory(new PropertyValueFactory<lavage, String>("date"));
         col_heure.setCellValueFactory(new PropertyValueFactory<lavage, String>("heure"));
         col_voiture.setCellValueFactory(new PropertyValueFactory<lavage, String>("voiture"));

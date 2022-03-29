@@ -16,6 +16,9 @@ public class SommaireReceptionnisteController {
     private Button btn_consulter_client;
 
     @FXML
+    private Button btn_consulter_employes;
+
+    @FXML
     private Button btn_consulter_lavage;
 
     @FXML
@@ -31,6 +34,15 @@ public class SommaireReceptionnisteController {
     public void consulter_client(ActionEvent actionEvent) throws IOException {
         btn_consulter_client.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/Client.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+    public void consulter_employes(ActionEvent actionEvent) throws IOException {
+        btn_consulter_employes.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/Employes.fxml"));
         Stage mainStage = new Stage();
         Scene scene = new Scene(root);
         mainStage.setScene(scene);

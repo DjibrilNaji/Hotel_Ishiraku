@@ -125,7 +125,6 @@ public class DisponibilteController implements Initializable {
         col_numParking.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("numParking"));
         col_categorie.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("categorie"));
         col_typeVoiture.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("typevoiture"));
-        col_idClient.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("id_client"));
         col_client.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("nom"));
 
         listM = com.example.hotel_ishiraku.mysqlconnect.getDataPlace();
@@ -140,7 +139,6 @@ public class DisponibilteController implements Initializable {
         col_numParking.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("numParking"));
         col_categorie.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("categorie"));
         col_typeVoiture.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("typevoiture"));
-        col_idClient.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("client"));
         col_client.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("nom"));
 
         dataList = com.example.hotel_ishiraku.mysqlconnect.getDataPlace();
@@ -174,7 +172,7 @@ public class DisponibilteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         UpdateTable();
-//        search_dispo();
+        search_dispo();
     }
 
     public void sommaire(ActionEvent actionEvent) throws IOException {

@@ -3,9 +3,8 @@ package com.example.hotel_ishiraku.lavage;
 
 public class lavage {
 
-    int id, laveur;
-    String date, heure, voiture, commentaire;
-
+    int id;
+    String prenom, date, heure, voiture, commentaire;
 
     public int getId() {
         return id;
@@ -15,12 +14,12 @@ public class lavage {
         this.id = id;
     }
 
-    public int getLaveur() {
-        return laveur;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setLaveur(int laveur) {
-        this.laveur = laveur;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public String getDate() {
@@ -55,15 +54,14 @@ public class lavage {
         this.commentaire = commentaire;
     }
 
-    public lavage(int id, int laveur, String date, String heure, String voiture, String commentaire) {
+    public lavage(int id, String prenom, String date, String heure, String voiture, String commentaire) {
         this.id = id;
-        this.laveur = laveur;
+        this.prenom = prenom;
         this.date = date;
         this.heure = heure;
         this.voiture = voiture;
         this.commentaire = commentaire;
     }
-
 
 }
 
