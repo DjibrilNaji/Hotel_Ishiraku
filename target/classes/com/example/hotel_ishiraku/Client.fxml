@@ -48,7 +48,7 @@
             <TableColumn fx:id="col_numero" prefWidth="190.0" text="Numéro de téléphone"/>
         </columns>
     </TableView>
-    <TextField fx:id="filterField" onAction="#search_client" layoutX="391.0" layoutY="111.0" promptText="Nom"/>
+    <TextField fx:id="filterField" onAction="#search_client" layoutX="391.0" layoutY="111.0" promptText="Prenom"/>
     <Button layoutX="552.0" layoutY="462.0" mnemonicParsing="false" onAction="#Delete" prefHeight="41.0"
             prefWidth="149.0" style="-fx-background-color: #ffffff; -fx-border-color: #f41818;" text="Supprimer"
             textFill="#f41818">

@@ -107,6 +107,11 @@ public class LavageReceptionnisteController implements Initializable {
     }
 
 
+    @FXML
+    void clearEvent(ActionEvent event) {
+        clear();
+    }
+
     //////// methode select lavage ///////
     @FXML
     void getSelected(MouseEvent event) {
@@ -211,6 +216,15 @@ public class LavageReceptionnisteController implements Initializable {
         SortedList<lavage> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(table_lavage.comparatorProperty());
         table_lavage.setItems(sortedData);
+    }
+
+    void clear() {
+        txt_id.setText(null);
+        txt_laveur.setText(null);
+        txt_date.setText(null);
+        txt_heure.setText(null);
+        txt_voiture.setText(null);
+        txt_commentaire.setText(null);
     }
 
 

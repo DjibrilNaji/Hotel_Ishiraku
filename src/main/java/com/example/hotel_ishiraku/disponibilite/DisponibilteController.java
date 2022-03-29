@@ -87,37 +87,37 @@ public class DisponibilteController implements Initializable {
     PreparedStatement pst = null;
 
     //////// methode select lavage ///////
-    @FXML
-    void getSelected(MouseEvent event) {
-        index = table_disponibilite.getSelectionModel().getSelectedIndex();
+//    @FXML
+//    void getSelected(MouseEvent event) {
+//        index = table_disponibilite.getSelectionModel().getSelectedIndex();
+//
+//        if (index <= -1) {
+//            return;
+//        }
+//        txt_id.setText(col_id.getCellData(index).toString());
+//        txt_client.setText(col_idClient.getCellData(index).toString());
+//
+//    }
 
-        if (index <= -1) {
-            return;
-        }
-        txt_id.setText(col_id.getCellData(index).toString());
-        txt_client.setText(col_idClient.getCellData(index).toString());
-
-    }
-
-    public void Edit() {
-        try {
-            conn = com.example.hotel_ishiraku.mysqlconnect.ConnectDb();
-            String value1 = txt_id.getText();
-            String value2 = txt_client.getText();
-
-            String sql = "update ishiraku_place set id_client= '" + value2 + "' where id= '" + value1 + "' ";
-
-            pst = conn.prepareStatement(sql);
-
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Modification effectuée avec succès");
-            UpdateTable();
-//            search_dispo();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-    }
+//    public void Edit() {
+//        try {
+//            conn = com.example.hotel_ishiraku.mysqlconnect.ConnectDb();
+//            String value1 = txt_id.getText();
+//            String value2 = txt_client.getText();
+//
+//            String sql = "update ishiraku_place set id_client= '" + value2 + "' where id= '" + value1 + "' ";
+//
+//            pst = conn.prepareStatement(sql);
+//
+//            pst.execute();
+//            JOptionPane.showMessageDialog(null, "Modification effectuée avec succès");
+//            UpdateTable();
+////            search_dispo();
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+//
+//    }
 
     public void UpdateTable() {
         col_id.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("id"));
@@ -159,8 +159,9 @@ public class DisponibilteController implements Initializable {
                     return true; // Filter matches password
                 } else // Does not match.
                     if (place.getTypevoiture().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches password
-                } else return place.getCategorie().toLowerCase().contains(lowerCaseFilter); // Filter matches password
+                        return true; // Filter matches password
+                    } else
+                        return place.getCategorie().toLowerCase().contains(lowerCaseFilter); // Filter matches password
             });
         });
 

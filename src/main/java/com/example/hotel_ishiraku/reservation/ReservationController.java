@@ -67,6 +67,12 @@ public class ReservationController implements Initializable {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    PreparedStatement pst2 = null;
+
+    @FXML
+    void clearEvent(ActionEvent event) {
+        clear();
+    }
 
     @FXML
     void getSelected(MouseEvent event) {
@@ -85,15 +91,23 @@ public class ReservationController implements Initializable {
     public void Add_reservation() {
         conn = mysqlconnect.ConnectDb();
         String sql = "INSERT INTO `ishiraku_reservation` (`client`, `dateEntree`, `dateSortie`, `place`) VALUES (?,?,?,?);";
+        String sql2 = "UPDATE ishiraku_place SET id_client = ? WHERE id = ? ;";
+
         try {
             assert conn != null;
             pst = conn.prepareStatement(sql);
+            pst2 = conn.prepareStatement(sql2);
 
             pst.setString(1, txt_id.getText());
             pst.setString(2, dateArrivee.getText());
             pst.setString(3, dateSortie.getText());
             pst.setString(4, txt_place.getText());
+
+            pst2.setString(1, txt_id.getText());
+            pst2.setString(2, txt_place.getText());
+
             pst.execute();
+            pst2.execute();
 
             JOptionPane.showMessageDialog(null, "Reservation ajouter avec succès");
             UpdateTable();
@@ -103,34 +117,50 @@ public class ReservationController implements Initializable {
         }
     }
 
-    public void Edit() {
-        conn = mysqlconnect.ConnectDb();
-        String sql = "UPDATE `ishiraku_reservation` SET client = ?, dateEntree = ?,dateSortie = ? ,place = ? where place = place";
-
-        try {
-            assert conn != null;
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, txt_id.getText());
-            pst.setString(2, dateArrivee.getText());
-            pst.setString(3, dateSortie.getText());
-            pst.setString(4, txt_place.getText());
-            pst.execute();
-
-            JOptionPane.showMessageDialog(null, "Modification effectuée avec succès");
-            UpdateTable();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-    }
+//    public void Edit() {
+//        conn = mysqlconnect.ConnectDb();
+//        String sql = "UPDATE `ishiraku_reservation` SET client = ?, dateEntree = ?,dateSortie = ? ,place = ? where place = place";
+//        String sql2 = "UPDATE ishiraku_place SET id_client = ? WHERE id = ? ;";
+//
+//        try {
+//            assert conn != null;
+//            pst = conn.prepareStatement(sql);
+//            pst2 = conn.prepareStatement(sql2);
+//
+//            pst.setString(1, txt_id.getText());
+//            pst.setString(2, dateArrivee.getText());
+//            pst.setString(3, dateSortie.getText());
+//            pst.setString(4, txt_place.getText());
+//
+//            pst2.setString(1, txt_id.getText());
+//            pst2.setString(2, txt_place.getText());
+//
+//            pst.execute();
+//            pst2.execute();
+//
+//            JOptionPane.showMessageDialog(null, "Modification effectuée avec succès");
+//            UpdateTable();
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+//
+//    }
 
     public void Delete() {
         conn = mysqlconnect.ConnectDb();
-        String sql = "delete from ishiraku_reservation where place= ? ";
+        String sql = "delete from ishiraku_reservation where place = ? ";
+        String sql2 = "UPDATE ishiraku_place SET id_client = 0 WHERE id = ? ;";
+
         try {
             pst = conn.prepareStatement(sql);
+            pst2 = conn.prepareStatement(sql2);
+
             pst.setString(1, txt_place.getText());
+            pst2.setString(1, txt_place.getText());
+
             pst.execute();
+            pst2.execute();
+
             JOptionPane.showMessageDialog(null, "Supprimer avec succès");
             UpdateTable();
         } catch (Exception e) {
@@ -157,6 +187,13 @@ public class ReservationController implements Initializable {
         Scene scene = new Scene(root);
         mainStage.setScene(scene);
         mainStage.show();
+    }
+
+    void clear() {
+        txt_id.setText(null);
+        dateArrivee.setText(null);
+        dateSortie.setText(null);
+        txt_place.setText(null);
     }
 
     @Override
