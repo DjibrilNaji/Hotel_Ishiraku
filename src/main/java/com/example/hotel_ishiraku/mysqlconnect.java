@@ -17,16 +17,14 @@ import java.sql.ResultSet;
 
 public class mysqlconnect {
 
-    Connection conn = null;
-
     public static Connection ConnectDb() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://sio-hautil.eu/najid", "najid", "Djibs785");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelishiraku", "root", "root");
 
             return conn;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "La connexion à la base de données a échoué. Veuillez réessayer dans quelques minutes, ou relancez votre connexion");
             return null;
         }
     }
@@ -50,29 +48,27 @@ public class mysqlconnect {
                         rs.getString("commentaire")));
             }
         } catch (Exception ignored) {
+
         }
         return listLavage;
     }
 
-    public static ObservableList<disponibilite> getDataPlace() {
+    public ObservableList<disponibilite> getDataPlace() {
         Connection conn = ConnectDb();
         ObservableList<disponibilite> listPlace = FXCollections.observableArrayList();
         try {
             assert conn != null;
-            PreparedStatement ps = conn.prepareStatement("select p.id, p.etage, p.numParking, p.id_client, c.nom, cat.categorie, t.typevoiture\n" +
-                    "from ishiraku_place p, ishiraku_client c, ishiraku_categorie cat, ishiraku_typevoiture t\n" +
-                    "where p.id_client=c.id and p.categorie=cat.id and p.typevoiture=t.id_type ORDER BY id ");
+            PreparedStatement ps = conn.prepareStatement("select p.id, p.etage, p.numParking, cat.categorie, t.typevoiture\n" +
+                    "from ishiraku_place p, ishiraku_categorie cat, ishiraku_typevoiture t\n" +
+                    "where p.categorie=cat.id and p.typevoiture=t.id_type ORDER BY id");
             ResultSet rs = ps.executeQuery();
-
 
             while (rs.next()) {
                 listPlace.add(new disponibilite(rs.getInt("id"),
                         rs.getInt("etage"),
                         rs.getInt("numParking"),
                         rs.getString("categorie"),
-                        rs.getString("typevoiture"),
-                        rs.getInt("id_client"),
-                        rs.getString("nom")));
+                        rs.getString("typevoiture")));
             }
         } catch (Exception e) {
             System.out.println(e);

@@ -86,6 +86,9 @@ public class EmployesController implements Initializable {
         clear();
     }
 
+
+
+
     public void Add_employes() {
         conn = mysqlconnect.ConnectDb();
         String sql = "INSERT INTO ishiraku_employes (role, nom, prenom, login, mdp)" +

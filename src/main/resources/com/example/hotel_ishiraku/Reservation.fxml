@@ -20,7 +20,7 @@
                    prefWidth="209.0" promptText="Date arrivee (yyyy-mm-dd)"/>
         <TextField fx:id="dateSortie" layoutX="35.0" layoutY="162.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0"
                    prefWidth="209.0" promptText="Date sortie (yyyy-mm-dd)"/>
-        <Button fx:id="btn_clear" layoutX="70.0" layoutY="312.0" mnemonicParsing="false" onAction="#clearEvent"
+        <Button layoutX="70.0" layoutY="312.0" mnemonicParsing="false" onAction="#clearEvent"
                 prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;"
                 text="Clear">
             <font>

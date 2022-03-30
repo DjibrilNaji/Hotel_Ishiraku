@@ -1,5 +1,6 @@
 package com.example.hotel_ishiraku.disponibilite;
 
+import com.example.hotel_ishiraku.mysqlconnect;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -14,18 +15,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
-
-import javax.swing.JOptionPane;
-
 
 public class DisponibilteController implements Initializable {
 
@@ -48,28 +46,13 @@ public class DisponibilteController implements Initializable {
     private TableColumn<disponibilite, String> col_typeVoiture;
 
     @FXML
-    private TableColumn<disponibilite, Integer> col_idClient;
-
-    @FXML
-    private TableColumn<disponibilite, String> col_client;
-
-    @FXML
     private TextField txt_id;
 
-//    @FXML
-//    private TextField txt_etage;
-//
-//    @FXML
-//    private TextField txt_numParking;
-//
-//    @FXML
-//    private TextField txt_typeVoiture;
-//
-//    @FXML
-//    private TextField txt_categorie;
+    @FXML
+    private TextField txt_dateSortie;
 
     @FXML
-    private TextField txt_client;
+    private TextField txt_dateArrivee;
 
     @FXML
     private TextField filterField;
@@ -86,38 +69,37 @@ public class DisponibilteController implements Initializable {
     ResultSet rs = null;
     PreparedStatement pst = null;
 
-    //////// methode select lavage ///////
-//    @FXML
-//    void getSelected(MouseEvent event) {
-//        index = table_disponibilite.getSelectionModel().getSelectedIndex();
-//
-//        if (index <= -1) {
-//            return;
-//        }
-//        txt_id.setText(col_id.getCellData(index).toString());
-//        txt_client.setText(col_idClient.getCellData(index).toString());
-//
-//    }
+    public void Dispo() {
+        conn = mysqlconnect.ConnectDb();
+        String sql = "SELECT p.id, p.etage, p.numParking, cat.categorie, t.typevoiture " +
+                "from ishiraku_place p, ishiraku_categorie cat, ishiraku_typevoiture t " +
+                "where p.categorie=cat.id and p.typevoiture=t.id_type and p.id not in " +
+                "(SELECT place from ishiraku_reservation where (?<=dateSortie and ?>=dateEntree) " +
+                "or (? >=dateEntree and ?<=dateSortie)) order by id";
+        try {
+            assert conn != null;
 
-//    public void Edit() {
-//        try {
-//            conn = com.example.hotel_ishiraku.mysqlconnect.ConnectDb();
-//            String value1 = txt_id.getText();
-//            String value2 = txt_client.getText();
-//
-//            String sql = "update ishiraku_place set id_client= '" + value2 + "' where id= '" + value1 + "' ";
-//
-//            pst = conn.prepareStatement(sql);
-//
-//            pst.execute();
-//            JOptionPane.showMessageDialog(null, "Modification effectuée avec succès");
-//            UpdateTable();
-////            search_dispo();
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//
-//    }
+            if (txt_dateArrivee.getText().compareTo(txt_dateSortie.getText()) > 0) {
+                JOptionPane.showMessageDialog(null, "Impossible que la date de début soit après la date de fin, veuillez réessayez s'il vous plaît");
+            } else {
+
+                pst = conn.prepareStatement(sql);
+
+                pst.setString(1, txt_dateSortie.getText());
+                pst.setString(2, txt_dateSortie.getText());
+                pst.setString(3, txt_dateArrivee.getText());
+                pst.setString(4, txt_dateArrivee.getText());
+
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Voici les disponibilités pour ces dates");
+                UpdateTable();
+//            }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
 
     public void UpdateTable() {
         col_id.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("id"));
@@ -125,9 +107,14 @@ public class DisponibilteController implements Initializable {
         col_numParking.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("numParking"));
         col_categorie.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("categorie"));
         col_typeVoiture.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("typevoiture"));
-        col_client.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("nom"));
 
-        listM = com.example.hotel_ishiraku.mysqlconnect.getDataPlace();
+
+        if (txt_dateArrivee.getText().equals("")) {
+            listM = new mysqlconnect().getDataPlace();
+            System.out.println("C'est vide");
+        } else {
+            System.out.println("C'est pas vide" + txt_dateArrivee.getText());
+        }
 
         table_disponibilite.setItems(listM);
     }
@@ -139,9 +126,8 @@ public class DisponibilteController implements Initializable {
         col_numParking.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("numParking"));
         col_categorie.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("categorie"));
         col_typeVoiture.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("typevoiture"));
-        col_client.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("nom"));
 
-        dataList = com.example.hotel_ishiraku.mysqlconnect.getDataPlace();
+        dataList = new mysqlconnect().getDataPlace();
 
         table_disponibilite.setItems(dataList);
 

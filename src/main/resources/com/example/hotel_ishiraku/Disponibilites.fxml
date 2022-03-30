@@ -9,38 +9,54 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hotel_ishiraku.disponibilite.DisponibilteController">
-    <children>
-        <AnchorPane prefHeight="532.0" prefWidth="70.0" style="-fx-background-color: #385898;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-        <TableView fx:id="table_disponibilite" layoutX="88.0" layoutY="146.0" prefHeight="289.0" prefWidth="518.0" style="-fx-background-color: #385898;">
-            <columns>
-                <TableColumn fx:id="col_id" minWidth="3.0" prefWidth="27.0" text="ID" />
-                <TableColumn fx:id="col_etage" minWidth="3.0" prefWidth="49.0" text="Etage" />
-                <TableColumn fx:id="col_numParking" prefWidth="97.0" text="NumParking" />
-                <TableColumn fx:id="col_categorie" minWidth="0.0" prefWidth="97.0" text="Catégorie" />
-                <TableColumn fx:id="col_typeVoiture" prefWidth="108.0" text="Type Voiture" />
-                <TableColumn fx:id="col_client" minWidth="0.0" prefWidth="139.0" text="Client" />
-            </columns>
-        </TableView>
-        <TextField fx:id="filterField" alignment="CENTER" layoutX="255.0" layoutY="79.0" prefHeight="24.0" prefWidth="157.0" promptText="Mot-clé" style="-fx-background-color: #385898;">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </TextField>
-        <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="242.0" layoutY="26.0" prefHeight="53.0" prefWidth="183.0" text="Disponibiltés" textFill="#0d0d0c">
-            <font>
-                <Font size="28.0" />
-            </font>
-        </Label>
-        <Text layoutX="488.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receptionniste">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
-        <Button fx:id="btn_accueil" layoutX="462.0" layoutY="446.0" mnemonicParsing="false" onAction="#sommaire" prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #ffffff; -fx-border-color: #385898;" text="Accueil" textFill="#385898">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-        </Button>
-    </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0"
+            prefWidth="715.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.hotel_ishiraku.disponibilite.DisponibilteController">
+    <AnchorPane prefHeight="532.0" prefWidth="70.0" style="-fx-background-color: #385898;" AnchorPane.bottomAnchor="0.0"
+                AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+    <TableView fx:id="table_disponibilite" layoutX="288.0" layoutY="138.0" prefHeight="289.0" prefWidth="399.0"
+               style="-fx-background-color: #385898;">
+        <columns>
+            <TableColumn fx:id="col_id" minWidth="3.0" prefWidth="27.0" text="ID"/>
+            <TableColumn fx:id="col_etage" minWidth="3.0" prefWidth="49.0" text="Etage"/>
+            <TableColumn fx:id="col_numParking" prefWidth="88.0" text="NumParking"/>
+            <TableColumn fx:id="col_categorie" minWidth="0.0" prefWidth="111.0" text="Catégorie"/>
+            <TableColumn fx:id="col_typeVoiture" prefWidth="123.0" text="Type Voiture"/>
+        </columns>
+    </TableView>
+    <TextField fx:id="filterField" alignment="CENTER" layoutX="409.0" layoutY="90.0" prefHeight="24.0" prefWidth="157.0"
+               promptText="Mot-clé" style="-fx-background-color: #385898;">
+        <font>
+            <Font name="System Bold" size="14.0"/>
+        </font>
+    </TextField>
+    <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="396.0" layoutY="37.0" prefHeight="53.0" prefWidth="183.0"
+           text="Disponibiltés" textFill="#0d0d0c">
+        <font>
+            <Font size="28.0"/>
+        </font>
+    </Label>
+    <Text layoutX="597.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receptionniste">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Text>
+    <Button fx:id="btn_accueil" layoutX="543.0" layoutY="440.0" mnemonicParsing="false" onAction="#sommaire"
+            prefHeight="37.0" prefWidth="144.0" style="-fx-background-color: #ffffff; -fx-border-color: #385898;"
+            text="Accueil" textFill="#385898">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="108.0" layoutY="291.0" mnemonicParsing="false" onAction="#Dispo"
+            prefHeight="41.0" prefWidth="136.0" style="-fx-background-color: #ffffff; -fx-border-color: #385898;"
+            text="Rechercher" textFill="#385898">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Button>
+    <TextField fx:id="txt_dateSortie" layoutX="93.0" layoutY="227.0" prefHeight="41.0" prefWidth="166.0"
+               promptText="Date sortie (yyyy-mm-dd)"/>
+    <TextField fx:id="txt_dateArrivee" layoutX="93.0" layoutY="171.0" prefHeight="41.0" prefWidth="166.0"
+               promptText="Date arrivee (yyyy-mm-dd)"/>
 </AnchorPane>
