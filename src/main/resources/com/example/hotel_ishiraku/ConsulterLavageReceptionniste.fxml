@@ -12,81 +12,78 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0"
             prefWidth="1015.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.hotel_ishiraku.lavage.LavageReceptionnisteController">
-    <children>
-        <AnchorPane layoutX="-7.0" prefHeight="543.0" prefWidth="228.0" style="-fx-background-color: #385898;"
-                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.topAnchor="0.0">
-            <children>
-                <TextField fx:id="txt_id" layoutX="24.0" layoutY="37.0" prefHeight="23.0" prefWidth="180.0"
-                           promptText="ID"/>
-                <TextField fx:id="txt_laveur" layoutX="24.0" layoutY="96.0" onKeyReleased="#search_user"
-                           prefHeight="30.0" prefWidth="180.0" promptText="Laveur"/>
-                <TextField fx:id="txt_date" layoutX="24.0" layoutY="159.0" prefHeight="30.0" prefWidth="180.0"
-                           promptText="Date"/>
-                <TextField fx:id="txt_heure" layoutX="24.0" layoutY="222.0" prefHeight="30.0" prefWidth="180.0"
-                           promptText="Heure"/>
-                <TextField fx:id="txt_voiture" layoutX="24.0" layoutY="285.0" prefHeight="30.0" prefWidth="180.0"
-                           promptText="Voiture"/>
-                <TextField fx:id="txt_commentaire" layoutX="24.0" layoutY="342.0" prefHeight="30.0" prefWidth="180.0"
-                           promptText="Commentaire"/>
-                <Button layoutX="44.0" layoutY="411.0" mnemonicParsing="false" onAction="#clearEvent"
-                        prefHeight="41.0" prefWidth="140.0"
-                        style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="Clear">
-                    <font>
-                        <Font name="System Bold" size="18.0"/>
-                    </font>
-                </Button>
-            </children>
-        </AnchorPane>
-        <TableView fx:id="table_lavage" layoutX="228.0" layoutY="154.0" onMouseClicked="#getSelected" prefHeight="289.0"
-                   prefWidth="774.0">
-            <columns>
-                <TableColumn fx:id="col_id" minWidth="3.0" prefWidth="48.0" text="ID"/>
-                <TableColumn fx:id="col_laveur" prefWidth="64.0" text="Laveur"/>
-                <TableColumn fx:id="col_date" prefWidth="85.0" text="Date"/>
-                <TableColumn fx:id="col_heure" minWidth="0.0" prefWidth="74.0" text="Heure"/>
-                <TableColumn fx:id="col_voiture" prefWidth="110.0" text="Voiture"/>
-                <TableColumn fx:id="col_commentaire" prefWidth="392.0" text="Commentaire"/>
-            </columns>
-        </TableView>
-        <TextField fx:id="filterField" layoutX="541.0" layoutY="101.0" promptText="Rechercher"/>
-        <Button layoutX="655.0" layoutY="462.0" mnemonicParsing="false" onAction="#Delete" prefHeight="41.0"
-                prefWidth="149.0" style="-fx-background-color: #ffffff; -fx-border-color: #f41818;" text="Supprimer"
-                textFill="#f41818">
+    <AnchorPane layoutX="-7.0" prefHeight="543.0" prefWidth="228.0" style="-fx-background-color: #385898;"
+                AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.topAnchor="0.0">
+        <TextField fx:id="txt_id" layoutX="24.0" layoutY="62.0" prefHeight="23.0" prefWidth="180.0" promptText="ID"/>
+        <TextField fx:id="txt_laveur" layoutX="24.0" layoutY="152.0" onKeyReleased="#search_user" prefHeight="30.0"
+                   prefWidth="180.0" promptText="Laveur"/>
+        <TextField fx:id="txt_date" layoutX="24.0" layoutY="200.0" prefHeight="30.0" prefWidth="180.0"
+                   promptText="Date"/>
+        <TextField fx:id="txt_heure" layoutX="24.0" layoutY="248.0" prefHeight="30.0" prefWidth="180.0"
+                   promptText="Heure"/>
+        <TextField fx:id="txt_voiture" layoutX="24.0" layoutY="296.0" prefHeight="30.0" prefWidth="180.0"
+                   promptText="Voiture"/>
+        <TextField fx:id="txt_commentaire" layoutX="24.0" layoutY="342.0" prefHeight="30.0" prefWidth="180.0"
+                   promptText="Commentaire"/>
+        <Button layoutX="44.0" layoutY="408.0" mnemonicParsing="false" onAction="#clear" prefHeight="41.0"
+                prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="Clear">
             <font>
                 <Font name="System Bold" size="18.0"/>
             </font>
         </Button>
-        <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="524.0" layoutY="38.0" prefHeight="53.0"
-               prefWidth="183.0" text="Lavage" textFill="#0d0d0c">
-            <font>
-                <Font size="28.0"/>
-            </font>
-        </Label>
-        <Text layoutX="883.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receptionniste">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Text>
-        <Button layoutX="250.0" layoutY="462.0" mnemonicParsing="false" onAction="#Add_lavage" prefHeight="41.0"
-                prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: #76e10d;" text="Réserver"
-                textFill="#76e10d">
-            <font>
-                <Font name="System Bold" size="18.0"/>
-            </font>
-        </Button>
-        <Button layoutX="450.0" layoutY="462.0" mnemonicParsing="false" onAction="#Edit" prefHeight="41.0"
-                prefWidth="149.0" style="-fx-background-color: #ffffff; -fx-border-color: Orange;" text="Modifer"
-                textFill="ORANGE">
-            <font>
-                <Font name="System Bold" size="18.0"/>
-            </font>
-        </Button>
-        <Button fx:id="btn_accueil" layoutX="860.0" layoutY="462.0" mnemonicParsing="false" onAction="#sommaire"
-                prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: #385898;"
-                text="Accueil" textFill="#385898">
-            <font>
-                <Font name="System Bold" size="18.0"/>
-            </font>
-        </Button>
-    </children>
+        <TextField fx:id="txt_idLaveur" layoutX="24.0" layoutY="105.0" onKeyReleased="#search_user" prefHeight="30.0"
+                   prefWidth="180.0" promptText="idLaveur"/>
+    </AnchorPane>
+    <TableView fx:id="table_lavage" layoutX="228.0" layoutY="154.0" onMouseClicked="#getSelected" prefHeight="289.0"
+               prefWidth="774.0">
+        <columns>
+            <TableColumn fx:id="col_id" minWidth="3.0" prefWidth="43.0" text="ID"/>
+            <TableColumn fx:id="col_idLaveur" minWidth="3.0" prefWidth="67.0" text="ID Laveur"/>
+            <TableColumn fx:id="col_laveur" prefWidth="100.0" text="Laveur"/>
+            <TableColumn fx:id="col_date" prefWidth="70.0" text="Date"/>
+            <TableColumn fx:id="col_heure" minWidth="0.0" prefWidth="69.0" text="Heure"/>
+            <TableColumn fx:id="col_voiture" prefWidth="89.0" text="Voiture"/>
+            <TableColumn fx:id="col_commentaire" prefWidth="335.0" text="Commentaire"/>
+        </columns>
+    </TableView>
+    <TextField fx:id="filterField" layoutX="541.0" layoutY="101.0" promptText="Rechercher"/>
+    <Button layoutX="655.0" layoutY="462.0" mnemonicParsing="false" onAction="#Delete_lavage" prefHeight="41.0"
+            prefWidth="149.0" style="-fx-background-color: #ffffff; -fx-border-color: #f41818;" text="Supprimer"
+            textFill="#f41818">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="524.0" layoutY="38.0" prefHeight="53.0" prefWidth="183.0"
+           text="Lavage" textFill="#0d0d0c">
+        <font>
+            <Font size="28.0"/>
+        </font>
+    </Label>
+    <Text layoutX="883.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receptionniste">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Text>
+    <Button layoutX="250.0" layoutY="462.0" mnemonicParsing="false" onAction="#Add_lavage" prefHeight="41.0"
+            prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: #76e10d;" text="Réserver"
+            textFill="#76e10d">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="450.0" layoutY="462.0" mnemonicParsing="false" onAction="#Edit_lavage" prefHeight="41.0"
+            prefWidth="149.0" style="-fx-background-color: #ffffff; -fx-border-color: Orange;" text="Modifer"
+            textFill="ORANGE">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button fx:id="btn_accueil" layoutX="860.0" layoutY="462.0" mnemonicParsing="false" onAction="#sommaire"
+            prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: #385898;"
+            text="Accueil" textFill="#385898">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Button>
 </AnchorPane>

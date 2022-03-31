@@ -1,6 +1,7 @@
 package com.example.hotel_ishiraku.disponibilite;
 
-import com.example.hotel_ishiraku.mysqlconnect;
+import com.example.hotel_ishiraku.DAO.DisponibiliteDAO;
+import com.example.hotel_ishiraku.Mysqlconnect;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -17,36 +18,29 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class DisponibilteController implements Initializable {
 
     @FXML
-    private TableView<disponibilite> table_disponibilite;
+    private TableView<Disponibilite> table_disponibilite;
 
     @FXML
-    private TableColumn<disponibilite, Integer> col_id;
+    private TableColumn<Disponibilite, Integer> col_id;
 
     @FXML
-    private TableColumn<disponibilite, Integer> col_etage;
+    private TableColumn<Disponibilite, Integer> col_etage;
 
     @FXML
-    private TableColumn<disponibilite, Integer> col_numParking;
+    private TableColumn<Disponibilite, Integer> col_numParking;
 
     @FXML
-    private TableColumn<disponibilite, String> col_categorie;
+    private TableColumn<Disponibilite, String> col_categorie;
 
     @FXML
-    private TableColumn<disponibilite, String> col_typeVoiture;
-
-    @FXML
-    private TextField txt_id;
+    private TableColumn<Disponibilite, String> col_typeVoiture;
 
     @FXML
     private TextField txt_dateSortie;
@@ -60,78 +54,54 @@ public class DisponibilteController implements Initializable {
     @FXML
     private Button btn_accueil;
 
-    ObservableList<disponibilite> listM;
-    ObservableList<disponibilite> dataList;
+    ObservableList<Disponibilite> listM;
+    ObservableList<Disponibilite> dataList;
 
-    int index = -1;
-
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        UpdateTable();
+        search_dispo();
+    }
 
     public void Dispo() {
-        conn = mysqlconnect.ConnectDb();
-        String sql = "SELECT p.id, p.etage, p.numParking, cat.categorie, t.typevoiture " +
-                "from ishiraku_place p, ishiraku_categorie cat, ishiraku_typevoiture t " +
-                "where p.categorie=cat.id and p.typevoiture=t.id_type and p.id not in " +
-                "(SELECT place from ishiraku_reservation where (?<=dateSortie and ?>=dateEntree) " +
-                "or (? >=dateEntree and ?<=dateSortie)) order by id";
-        try {
-            assert conn != null;
+        new DisponibiliteDAO().Dispo_place(txt_dateArrivee.getText(), txt_dateSortie.getText());
+        UpdateTable();
+    }
 
-            if (txt_dateArrivee.getText().compareTo(txt_dateSortie.getText()) > 0) {
-                JOptionPane.showMessageDialog(null, "Impossible que la date de début soit après la date de fin, veuillez réessayez s'il vous plaît");
-            } else {
-
-                pst = conn.prepareStatement(sql);
-
-                pst.setString(1, txt_dateSortie.getText());
-                pst.setString(2, txt_dateSortie.getText());
-                pst.setString(3, txt_dateArrivee.getText());
-                pst.setString(4, txt_dateArrivee.getText());
-
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Voici les disponibilités pour ces dates");
-                UpdateTable();
-//            }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
+    @FXML
+    void clear() {
+        txt_dateArrivee.setText(null);
+        txt_dateSortie.setText(null);
     }
 
     public void UpdateTable() {
-        col_id.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("id"));
-        col_etage.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("etage"));
-        col_numParking.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("numParking"));
-        col_categorie.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("categorie"));
-        col_typeVoiture.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("typevoiture"));
+        col_id.setCellValueFactory(new PropertyValueFactory<Disponibilite, Integer>("id"));
+        col_etage.setCellValueFactory(new PropertyValueFactory<Disponibilite, Integer>("etage"));
+        col_numParking.setCellValueFactory(new PropertyValueFactory<Disponibilite, Integer>("numParking"));
+        col_categorie.setCellValueFactory(new PropertyValueFactory<Disponibilite, String>("categorie"));
+        col_typeVoiture.setCellValueFactory(new PropertyValueFactory<Disponibilite, String>("typevoiture"));
 
-
-        if (txt_dateArrivee.getText().equals("")) {
-            listM = new mysqlconnect().getDataPlace();
-            System.out.println("C'est vide");
+        if (txt_dateArrivee.getText().equals("") | txt_dateSortie.getText().equals("") | txt_dateArrivee.getText().equals("") && txt_dateSortie.getText().equals("")) {
+            listM = new Mysqlconnect().getDataPlace();
         } else {
-            System.out.println("C'est pas vide" + txt_dateArrivee.getText());
+            listM = new Mysqlconnect().getDataPlaceByDate(txt_dateArrivee.getText(), txt_dateSortie.getText());
         }
-
         table_disponibilite.setItems(listM);
     }
 
     @FXML
     void search_dispo() {
-        col_id.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("id"));
-        col_etage.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("etage"));
-        col_numParking.setCellValueFactory(new PropertyValueFactory<disponibilite, Integer>("numParking"));
-        col_categorie.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("categorie"));
-        col_typeVoiture.setCellValueFactory(new PropertyValueFactory<disponibilite, String>("typevoiture"));
+        col_id.setCellValueFactory(new PropertyValueFactory<Disponibilite, Integer>("id"));
+        col_etage.setCellValueFactory(new PropertyValueFactory<Disponibilite, Integer>("etage"));
+        col_numParking.setCellValueFactory(new PropertyValueFactory<Disponibilite, Integer>("numParking"));
+        col_categorie.setCellValueFactory(new PropertyValueFactory<Disponibilite, String>("categorie"));
+        col_typeVoiture.setCellValueFactory(new PropertyValueFactory<Disponibilite, String>("typevoiture"));
 
-        dataList = new mysqlconnect().getDataPlace();
+        dataList = new Mysqlconnect().getDataPlace();
 
         table_disponibilite.setItems(dataList);
 
-        FilteredList<disponibilite> filteredData = new FilteredList<>(dataList, b -> true);
+        FilteredList<Disponibilite> filteredData = new FilteredList<>(dataList, b -> true);
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(place -> {
                 if (newValue == null || newValue.isEmpty()) {
@@ -149,16 +119,9 @@ public class DisponibilteController implements Initializable {
             });
         });
 
-        SortedList<disponibilite> sortedData = new SortedList<>(filteredData);
+        SortedList<Disponibilite> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(table_disponibilite.comparatorProperty());
         table_disponibilite.setItems(sortedData);
-    }
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        UpdateTable();
-        search_dispo();
     }
 
     public void sommaire(ActionEvent actionEvent) throws IOException {

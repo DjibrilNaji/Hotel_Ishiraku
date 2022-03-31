@@ -1,9 +1,9 @@
 package com.example.hotel_ishiraku.lavage;
 
 
-public class lavage {
+public class Lavage {
 
-    int id;
+    int id, laveur;
     String prenom, date, heure, voiture, commentaire;
 
     public int getId() {
@@ -12,6 +12,14 @@ public class lavage {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getLaveur() {
+        return laveur;
+    }
+
+    public void setLaveur(int laveur) {
+        this.laveur = laveur;
     }
 
     public String getPrenom() {
@@ -54,14 +62,14 @@ public class lavage {
         this.commentaire = commentaire;
     }
 
-    public lavage(int id, String prenom, String date, String heure, String voiture, String commentaire) {
+    public Lavage(int id, int laveur, String prenom, String date, String heure, String voiture, String commentaire) {
         this.id = id;
+        this.laveur = laveur;
         this.prenom = prenom;
         this.date = date;
         this.heure = heure;
         this.voiture = voiture;
         this.commentaire = commentaire;
     }
-
 }
 

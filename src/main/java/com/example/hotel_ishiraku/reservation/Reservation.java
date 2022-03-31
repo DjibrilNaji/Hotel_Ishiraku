@@ -1,11 +1,8 @@
 package com.example.hotel_ishiraku.reservation;
 
-import java.util.Date;
-
-public class reservation {
-    int client;
+public class Reservation {
+    int client, place;
     String dateEntree, dateSortie;
-    int place;
 
     public int getClient() {
         return client;
@@ -39,7 +36,7 @@ public class reservation {
         this.dateSortie = dateSortie;
     }
 
-    public reservation(int client, String dateEntree, String dateSortie, int place) {
+    public Reservation(int client, String dateEntree, String dateSortie, int place) {
         this.client = client;
         this.dateEntree = dateEntree;
         this.dateSortie = dateSortie;

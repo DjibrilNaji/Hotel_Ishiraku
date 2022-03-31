@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import com.example.hotel_ishiraku.mysqlconnect;
+import com.example.hotel_ishiraku.Mysqlconnect;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,7 +51,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void Login(ActionEvent event) throws Exception {
-        conn = mysqlconnect.ConnectDb();
+        conn = new Mysqlconnect().ConnectDb();
         String sql = "Select * from ishiraku_employes where role = ? and login = ? and mdp = PASSWORD(?) ";
         try {
             pst = conn.prepareStatement(sql);

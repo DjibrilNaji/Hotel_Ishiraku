@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Appli.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Hotel_Ishiraku.sql" dialect="MariaDB" />
   </component>
 </project>

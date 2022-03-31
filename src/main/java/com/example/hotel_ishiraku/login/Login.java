@@ -1,6 +1,6 @@
 package com.example.hotel_ishiraku.login;
 
-public class login {
+public class Login {
 
     String role, login, mdp;
 
@@ -28,7 +28,7 @@ public class login {
         this.mdp = mdp;
     }
 
-    public login(String role, String login, String mdp) {
+    public Login(String role, String login, String mdp) {
         this.role = role;
         this.login = login;
         this.mdp = mdp;

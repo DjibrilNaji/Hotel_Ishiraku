@@ -1,6 +1,6 @@
 package com.example.hotel_ishiraku.disponibilite;
 
-public class disponibilite {
+public class Disponibilite {
 
     int id, etage, numParking;
     String categorie, typevoiture;
@@ -45,7 +45,7 @@ public class disponibilite {
         this.typevoiture = typevoiture;
     }
 
-    public disponibilite(int id, int etage, int numParking, String categorie, String typevoiture) {
+    public Disponibilite(int id, int etage, int numParking, String categorie, String typevoiture) {
         this.id = id;
         this.etage = etage;
         this.numParking = numParking;

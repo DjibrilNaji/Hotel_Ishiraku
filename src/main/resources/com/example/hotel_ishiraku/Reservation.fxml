@@ -20,7 +20,7 @@
                    prefWidth="209.0" promptText="Date arrivee (yyyy-mm-dd)"/>
         <TextField fx:id="dateSortie" layoutX="35.0" layoutY="162.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0"
                    prefWidth="209.0" promptText="Date sortie (yyyy-mm-dd)"/>
-        <Button layoutX="70.0" layoutY="312.0" mnemonicParsing="false" onAction="#clearEvent"
+        <Button layoutX="70.0" layoutY="312.0" mnemonicParsing="false" onAction="#clear"
                 prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;"
                 text="Clear">
             <font>
@@ -33,19 +33,19 @@
             <Font name="System Bold" size="30.0"/>
         </font>
     </Label>
-    <Button layoutX="300.0" layoutY="381.0" mnemonicParsing="false" onAction="#Add_reservation" prefHeight="41.0"
+    <Button layoutX="300.0" layoutY="381.0" mnemonicParsing="false" onAction="#Add" prefHeight="41.0"
             prefWidth="99.0" style="-fx-background-color: #ffffff; -fx-border-color: #76e10d;" text="Réserver"
             textFill="#76e10d">
         <font>
             <Font name="System Bold" size="18.0"/>
         </font>
     </Button>
-    <!--    <Button layoutX="406.0" layoutY="381.0" mnemonicParsing="false" onAction="#Edit" prefHeight="41.0" prefWidth="106.0"-->
-    <!--            style="-fx-background-color: #ffffff; -fx-border-color: Orange;" text="Modifier" textFill="Orange">-->
-    <!--        <font>-->
-    <!--            <Font name="System Bold" size="18.0"/>-->
-    <!--        </font>-->
-    <!--    </Button>-->
+        <Button layoutX="406.0" layoutY="381.0" mnemonicParsing="false" onAction="#Edit" prefHeight="41.0" prefWidth="106.0"
+                style="-fx-background-color: #ffffff; -fx-border-color: Orange;" text="Modifier" textFill="Orange">
+            <font>
+                <Font name="System Bold" size="18.0"/>
+            </font>
+        </Button>
     <Button layoutX="409.0" layoutY="381.0" mnemonicParsing="false" onAction="#Delete" prefHeight="41.0"
             prefWidth="117.0" style="-fx-background-color: #ffffff; -fx-border-color: #f41818;" text="Supprimer"
             textFill="#f41818">

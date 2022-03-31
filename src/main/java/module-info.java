@@ -33,6 +33,8 @@ module com.example.hotel_ishiraku {
     opens com.example.hotel_ishiraku.login to javafx.fxml;
     exports com.example.hotel_ishiraku.employes;
     opens com.example.hotel_ishiraku.employes to javafx.fxml;
+    exports com.example.hotel_ishiraku.DAO;
+    opens com.example.hotel_ishiraku.DAO to javafx.fxml;
 
 
 }

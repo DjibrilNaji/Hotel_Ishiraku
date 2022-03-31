@@ -1,6 +1,6 @@
 package com.example.hotel_ishiraku.client;
 
-public class client {
+public class Client {
 
     int id;
     String nom, prenom, numero_telephone;
@@ -37,7 +37,7 @@ public class client {
         this.numero_telephone = numero_telephone;
     }
 
-    public client(int id, String nom, String prenom, String numero_telephone) {
+    public Client(int id, String nom, String prenom, String numero_telephone) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;

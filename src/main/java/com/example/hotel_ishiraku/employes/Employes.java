@@ -1,8 +1,6 @@
 package com.example.hotel_ishiraku.employes;
 
-import java.util.Date;
-
-public class employes {
+public class Employes {
 
     int id;
     String role, nom, prenom, login;
@@ -47,7 +45,7 @@ public class employes {
         this.login = login;
     }
 
-    public employes(int id, String role, String nom, String prenom, String login) {
+    public Employes(int id, String role, String nom, String prenom, String login) {
         this.id = id;
         this.role = role;
         this.nom = nom;

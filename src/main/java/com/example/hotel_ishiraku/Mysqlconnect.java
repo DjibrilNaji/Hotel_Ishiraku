@@ -1,10 +1,10 @@
 package com.example.hotel_ishiraku;
 
-import com.example.hotel_ishiraku.client.client;
-import com.example.hotel_ishiraku.disponibilite.disponibilite;
-import com.example.hotel_ishiraku.employes.employes;
-import com.example.hotel_ishiraku.lavage.lavage;
-import com.example.hotel_ishiraku.reservation.reservation;
+import com.example.hotel_ishiraku.client.Client;
+import com.example.hotel_ishiraku.disponibilite.Disponibilite;
+import com.example.hotel_ishiraku.employes.Employes;
+import com.example.hotel_ishiraku.lavage.Lavage;
+import com.example.hotel_ishiraku.reservation.Reservation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -15,9 +15,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-public class mysqlconnect {
+public class Mysqlconnect {
 
-    public static Connection ConnectDb() {
+    public Connection ConnectDb() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelishiraku", "root", "root");
@@ -29,33 +29,33 @@ public class mysqlconnect {
         }
     }
 
-    public static ObservableList<lavage> getDataLavage() {
+    public ObservableList<Lavage> getDataLavage() {
         Connection conn = ConnectDb();
-        ObservableList<lavage> listLavage = FXCollections.observableArrayList();
+        ObservableList<Lavage> listLavage = FXCollections.observableArrayList();
         try {
             assert conn != null;
-            PreparedStatement ps = conn.prepareStatement("select l.id, e.prenom, l.date, l.heure, l.voiture, l.commentaire\n" +
-                    "from ishiraku_lavage l, ishiraku_employes e\n" +
-                    "where l.laveur=e.id ORDER BY id");
+            PreparedStatement ps = conn.prepareStatement("select l.id, l.laveur, e.prenom, l.date, l.heure, l.voiture, l.commentaire " +
+                    "from ishiraku_lavage l, ishiraku_employes e where l.laveur=e.id ORDER BY id");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                listLavage.add(new lavage(rs.getInt("id"),
+                listLavage.add(new Lavage(rs.getInt("id"),
+                        rs.getInt("laveur"),
                         rs.getString("prenom"),
                         rs.getString("date"),
                         rs.getString("heure"),
                         rs.getString("voiture"),
                         rs.getString("commentaire")));
             }
-        } catch (Exception ignored) {
-
+        } catch (Exception e) {
+            System.out.println(e);
         }
         return listLavage;
     }
 
-    public ObservableList<disponibilite> getDataPlace() {
+    public ObservableList<Disponibilite> getDataPlace() {
         Connection conn = ConnectDb();
-        ObservableList<disponibilite> listPlace = FXCollections.observableArrayList();
+        ObservableList<Disponibilite> listPlace = FXCollections.observableArrayList();
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement("select p.id, p.etage, p.numParking, cat.categorie, t.typevoiture\n" +
@@ -64,7 +64,7 @@ public class mysqlconnect {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                listPlace.add(new disponibilite(rs.getInt("id"),
+                listPlace.add(new Disponibilite(rs.getInt("id"),
                         rs.getInt("etage"),
                         rs.getInt("numParking"),
                         rs.getString("categorie"),
@@ -76,16 +76,46 @@ public class mysqlconnect {
         return listPlace;
     }
 
-    public static ObservableList<client> getDataClient() {
+    public ObservableList<Disponibilite> getDataPlaceByDate(String dateArrivee, String dateSortie) {
         Connection conn = ConnectDb();
-        ObservableList<client> listClient = FXCollections.observableArrayList();
+        ObservableList<Disponibilite> listPlace = FXCollections.observableArrayList();
+        try {
+            assert conn != null;
+            PreparedStatement ps = conn.prepareStatement("SELECT p.id, p.etage, p.numParking, cat.categorie, t.typevoiture " +
+                    "from ishiraku_place p, ishiraku_categorie cat, ishiraku_typevoiture t " +
+                    "where p.categorie=cat.id and p.typevoiture=t.id_type and p.id not in (SELECT place from ishiraku_reservation " +
+                    "where (?<=dateSortie and ?>=dateEntree) or (? >=dateEntree and ?<=dateSortie)) order by id");
+
+            ps.setString(1, dateSortie);
+            ps.setString(2, dateSortie);
+            ps.setString(3, dateArrivee);
+            ps.setString(4, dateArrivee);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                listPlace.add(new Disponibilite(rs.getInt("id"),
+                        rs.getInt("etage"),
+                        rs.getInt("numParking"),
+                        rs.getString("categorie"),
+                        rs.getString("typevoiture")));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return listPlace;
+    }
+
+    public ObservableList<Client> getDataClient() {
+        Connection conn = ConnectDb();
+        ObservableList<Client> listClient = FXCollections.observableArrayList();
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement("select * from ishiraku_client");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                listClient.add(new client(
+                listClient.add(new Client(
                         rs.getInt("id"),
                         rs.getString("nom"),
                         rs.getString("prenom"),
@@ -97,16 +127,16 @@ public class mysqlconnect {
         return listClient;
     }
 
-    public static ObservableList<employes> getDataEmployes() {
+    public ObservableList<Employes> getDataEmployes() {
         Connection conn = ConnectDb();
-        ObservableList<employes> listEmployes = FXCollections.observableArrayList();
+        ObservableList<Employes> listEmployes = FXCollections.observableArrayList();
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement("select * from ishiraku_employes");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                listEmployes.add(new employes(
+                listEmployes.add(new Employes(
                         rs.getInt("id"),
                         rs.getString("role"),
                         rs.getString("nom"),
@@ -119,16 +149,17 @@ public class mysqlconnect {
         return listEmployes;
     }
 
-    public static ObservableList<reservation> getDataReservation() {
+
+    public ObservableList<Reservation> getDataReservation() {
         Connection conn = ConnectDb();
-        ObservableList<reservation> listReservation = FXCollections.observableArrayList();
+        ObservableList<Reservation> listReservation = FXCollections.observableArrayList();
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement("select * from ishiraku_reservation");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                listReservation.add(new reservation(
+                listReservation.add(new Reservation(
                         rs.getInt("client"),
                         rs.getString("dateEntree"),
                         rs.getString("dateSortie"),
@@ -139,7 +170,6 @@ public class mysqlconnect {
         }
         return listReservation;
     }
-
 }
 
 

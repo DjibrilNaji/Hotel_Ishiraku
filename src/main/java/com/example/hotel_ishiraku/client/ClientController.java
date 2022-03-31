@@ -1,6 +1,7 @@
 package com.example.hotel_ishiraku.client;
 
-import com.example.hotel_ishiraku.mysqlconnect;
+import com.example.hotel_ishiraku.DAO.ClientDAO;
+import com.example.hotel_ishiraku.Mysqlconnect;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -10,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -18,30 +18,26 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class ClientController implements Initializable {
 
     @FXML
-    private TableView<client> table_client;
+    private TableView<Client> table_client;
 
     @FXML
-    private TableColumn<client, Integer> col_id;
+    private TableColumn<Client, Integer> col_id;
 
     @FXML
-    private TableColumn<client, String> col_nom;
+    private TableColumn<Client, String> col_nom;
 
     @FXML
-    private TableColumn<client, String> col_prenom;
+    private TableColumn<Client, String> col_prenom;
 
     @FXML
-    private TableColumn<client, String> col_numero;
+    private TableColumn<Client, String> col_numero;
 
     @FXML
     private TextField txt_id;
@@ -56,50 +52,49 @@ public class ClientController implements Initializable {
     private TextField txt_numero;
 
     @FXML
+    private javafx.scene.control.Button btn_accueil;
+
+    @FXML
+    private javafx.scene.control.Button btn_reserver;
+
+
+    @FXML
     private TextField filterField;
 
-    @FXML
-    private Button btn_accueil;
-
-    @FXML
-    private Button btn_reserver;
-
-    ObservableList<client> listM;
-    ObservableList<client> dataList;
+    ObservableList<Client> listM;
+    ObservableList<Client> dataList;
 
     int index = -1;
 
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        UpdateTable();
+        search_client();
+    }
 
+    public void Add() {
+        new ClientDAO().Add_client(txt_nom.getText(), txt_prenom.getText(), txt_numero.getText());
+        UpdateTable();
+    }
+
+    public void Edit() {
+        new ClientDAO().Edit_client(txt_id.getText(), txt_nom.getText(), txt_prenom.getText(), txt_numero.getText());
+        UpdateTable();
+    }
+
+    public void Delete() {
+        new ClientDAO().Delete_client(txt_id.getText());
+        UpdateTable();
+    }
 
     @FXML
-    void clearEvent(ActionEvent event) {
-        clear();
+    void clear(ActionEvent event) {
+        txt_id.setText(null);
+        txt_nom.setText(null);
+        txt_prenom.setText(null);
+        txt_numero.setText(null);
     }
 
-    public void Add_client() {
-        conn = mysqlconnect.ConnectDb();
-        String sql = "insert into ishiraku_client(nom,prenom,numero_telephone) values (?,?,?)";
-
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, txt_nom.getText());
-            pst.setString(2, txt_prenom.getText());
-            pst.setString(3, txt_numero.getText());
-
-            pst.execute();
-
-            JOptionPane.showMessageDialog(null, "Client ajouter avec succès");
-            UpdateTable();
-//            search_user();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-
-    //////// methode select lavage ///////
     @FXML
     void getSelected(MouseEvent event) {
         index = table_client.getSelectionModel().getSelectedIndex();
@@ -112,63 +107,27 @@ public class ClientController implements Initializable {
         txt_numero.setText(col_numero.getCellData(index).toString());
     }
 
-    public void Edit() {
-        try {
-            conn = mysqlconnect.ConnectDb();
-            String value1 = txt_id.getText();
-            String value2 = txt_nom.getText();
-            String value3 = txt_prenom.getText();
-            String value4 = txt_numero.getText();
-
-            String sql = "update ishiraku_client set nom= '" + value2 + "',prenom= '" + value3 + "',numero_telephone= '" +
-                    value4 + "' where id= '" + value1 + "' ";
-            pst = conn.prepareStatement(sql);
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Client modifié");
-            UpdateTable();
-//            search_client();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-
-    public void Delete() {
-        conn = mysqlconnect.ConnectDb();
-        String sql = "delete from ishiraku_client where id= ? ";
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, txt_id.getText());
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Client supprimé avec succès");
-            UpdateTable();
-//            search_client();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-
     public void UpdateTable() {
-        col_id.setCellValueFactory(new PropertyValueFactory<client, Integer>("id"));
-        col_nom.setCellValueFactory(new PropertyValueFactory<client, String>("nom"));
-        col_prenom.setCellValueFactory(new PropertyValueFactory<client, String>("prenom"));
-        col_numero.setCellValueFactory(new PropertyValueFactory<client, String>("numero_telephone"));
+        col_id.setCellValueFactory(new PropertyValueFactory<Client, Integer>("id"));
+        col_nom.setCellValueFactory(new PropertyValueFactory<Client, String>("nom"));
+        col_prenom.setCellValueFactory(new PropertyValueFactory<Client, String>("prenom"));
+        col_numero.setCellValueFactory(new PropertyValueFactory<Client, String>("numero_telephone"));
 
-        listM = mysqlconnect.getDataClient();
+        listM = new Mysqlconnect().getDataClient();
         table_client.setItems(listM);
     }
 
-    @FXML
-    void search_client() {
-        col_id.setCellValueFactory(new PropertyValueFactory<client, Integer>("id"));
-        col_nom.setCellValueFactory(new PropertyValueFactory<client, String>("nom"));
-        col_prenom.setCellValueFactory(new PropertyValueFactory<client, String>("prenom"));
-        col_numero.setCellValueFactory(new PropertyValueFactory<client, String>("numero_telephone"));
+    public void search_client() {
+        col_id.setCellValueFactory(new PropertyValueFactory<Client, Integer>("id"));
+        col_nom.setCellValueFactory(new PropertyValueFactory<Client, String>("nom"));
+        col_prenom.setCellValueFactory(new PropertyValueFactory<Client, String>("prenom"));
+        col_numero.setCellValueFactory(new PropertyValueFactory<Client, String>("numero_telephone"));
 
-        dataList = com.example.hotel_ishiraku.mysqlconnect.getDataClient();
+        dataList = new Mysqlconnect().getDataClient();
 
         table_client.setItems(dataList);
 
-        FilteredList<client> filteredData = new FilteredList<>(dataList, b -> true);
+        FilteredList<Client> filteredData = new FilteredList<>(dataList, b -> true);
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(person -> {
                 if (newValue == null || newValue.isEmpty()) {
@@ -184,15 +143,9 @@ public class ClientController implements Initializable {
                     return false; // Does not match.
             });
         });
-        SortedList<client> sortedData = new SortedList<>(filteredData);
+        SortedList<Client> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(table_client.comparatorProperty());
         table_client.setItems(sortedData);
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        UpdateTable();
-        search_client();
     }
 
     public void sommaire(ActionEvent actionEvent) throws IOException {
@@ -211,13 +164,6 @@ public class ClientController implements Initializable {
         Scene scene = new Scene(root);
         mainStage.setScene(scene);
         mainStage.show();
-    }
-
-    void clear() {
-        txt_id.setText(null);
-        txt_nom.setText(null);
-        txt_prenom.setText(null);
-        txt_numero.setText(null);
     }
 
 

@@ -1,6 +1,6 @@
 package com.example.hotel_ishiraku.lavage;
 
-import com.example.hotel_ishiraku.mysqlconnect;
+import com.example.hotel_ishiraku.Mysqlconnect;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,88 +12,55 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ResourceBundle;
-
 
 public class LavageLaveurController implements Initializable {
 
     @FXML
-    private TableView<lavage> table_lavage;
+    private TableView<Lavage> table_lavage;
 
     @FXML
-    private TableColumn<lavage, Integer> col_id;
+    private TableColumn<Lavage, Integer> col_id;
 
     @FXML
-    private TableColumn<lavage, Integer> col_laveur;
+    private TableColumn<Lavage, String> col_laveur;
 
     @FXML
-    private TableColumn<lavage, String> col_date;
+    private TableColumn<Lavage, String> col_date;
 
     @FXML
-    private TableColumn<lavage, String> col_heure;
+    private TableColumn<Lavage, String> col_heure;
 
     @FXML
-    private TableColumn<lavage, String> col_voiture;
+    private TableColumn<Lavage, String> col_voiture;
 
     @FXML
-    private TableColumn<lavage, String> col_commentaire;
-
-    @FXML
-    private TextField txt_id;
-
-    @FXML
-    private TextField txt_laveur;
-
-    @FXML
-    private TextField txt_date;
-
-    @FXML
-    private TextField txt_heure;
-
-    @FXML
-    private TextField txt_voiture;
-
-    @FXML
-    private TextField txt_commentaire;
-
-    @FXML
-    private DatePicker filterField;
+    private TableColumn<Lavage, String> col_commentaire;
 
     @FXML
     Button btn_accueil;
 
-    ObservableList<lavage> listM;
-    ObservableList<lavage> dataList;
+    ObservableList<Lavage> listM;
 
-    int index = -1;
-
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        UpdateTable();
+    }
 
     public void UpdateTable() {
-        col_id.setCellValueFactory(new PropertyValueFactory<lavage, Integer>("id"));
-        col_laveur.setCellValueFactory(new PropertyValueFactory<lavage, Integer>("laveur"));
-        col_date.setCellValueFactory(new PropertyValueFactory<lavage, String>("date"));
-        col_heure.setCellValueFactory(new PropertyValueFactory<lavage, String>("heure"));
-        col_voiture.setCellValueFactory(new PropertyValueFactory<lavage, String>("voiture"));
-        col_commentaire.setCellValueFactory(new PropertyValueFactory<lavage, String>("commentaire"));
+        col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        col_laveur.setCellValueFactory(new PropertyValueFactory<Lavage, String>("prenom"));
+        col_date.setCellValueFactory(new PropertyValueFactory<Lavage, String>("date"));
+        col_heure.setCellValueFactory(new PropertyValueFactory<Lavage, String>("heure"));
+        col_voiture.setCellValueFactory(new PropertyValueFactory<Lavage, String>("voiture"));
+        col_commentaire.setCellValueFactory(new PropertyValueFactory<Lavage, String>("commentaire"));
 
-        listM = mysqlconnect.getDataLavage();
+        listM = new Mysqlconnect().getDataLavage();
         table_lavage.setItems(listM);
     }
 
-    //
-//
-//
-//
 //    @FXML
 //    void search_user() {
 //        col_id.setCellValueFactory(new PropertyValueFactory<lavage, Integer>("id"));
@@ -131,14 +98,6 @@ public class LavageLaveurController implements Initializable {
 //        sortedData.comparatorProperty().bind(table_lavage.comparatorProperty());
 //        table_lavage.setItems(sortedData);
 //    }
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        UpdateTable();
-//    search_user();
-        // Code Source in description
-    }
 
     public void sommaire(ActionEvent actionEvent) throws IOException {
         btn_accueil.getScene().getWindow().hide();
