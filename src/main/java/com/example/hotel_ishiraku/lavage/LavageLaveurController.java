@@ -46,10 +46,10 @@ public class LavageLaveurController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        UpdateTable();
+        updateTable();
     }
 
-    public void UpdateTable() {
+    public void updateTable() {
         col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         col_laveur.setCellValueFactory(new PropertyValueFactory<Lavage, String>("prenom"));
         col_date.setCellValueFactory(new PropertyValueFactory<Lavage, String>("date"));

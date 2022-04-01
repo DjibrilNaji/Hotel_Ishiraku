@@ -1,6 +1,7 @@
 package com.example.hotel_ishiraku.DAO;
 
 import com.example.hotel_ishiraku.Mysqlconnect;
+import com.example.hotel_ishiraku.client.Client;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -8,18 +9,19 @@ import java.sql.PreparedStatement;
 
 public class ClientDAO {
 
-    Connection conn = new Mysqlconnect().ConnectDb();
+    Connection conn = new Mysqlconnect().connectDb();
 
-    public void Add_client(String nom, String prenom, String numero) {
-        new Mysqlconnect().ConnectDb();
+    // mettre l'objet client
+    public void addClient(Client client) {
+        new Mysqlconnect().connectDb();
         String sql = "insert into ishiraku_client(nom,prenom,numero_telephone) values (?,?,?)";
 
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
 
-            pst.setString(1, nom);
-            pst.setString(2, prenom);
-            pst.setString(3, numero);
+            pst.setString(1, client.getNom());
+            pst.setString(2, client.getPrenom());
+            pst.setString(3, client.getNumero_telephone());
 
             pst.execute();
 
@@ -29,19 +31,18 @@ public class ClientDAO {
         }
     }
 
-
-    public void Edit_client(String id, String nom, String prenom, String numero) {
+    public void editClient(Client client) {
         try {
-            conn = new Mysqlconnect().ConnectDb();
+            conn = new Mysqlconnect().connectDb();
 
             String sql = "update ishiraku_client set nom= ?,prenom= ?,numero_telephone=? where id= ?";
 
             PreparedStatement pst = conn.prepareStatement(sql);
 
-            pst.setString(1, nom);
-            pst.setString(2, prenom);
-            pst.setString(3, numero);
-            pst.setString(4, id);
+            pst.setString(1, client.getNom());
+            pst.setString(2, client.getPrenom());
+            pst.setString(3, client.getNumero_telephone());
+            pst.setInt(4, client.getId());
 
             pst.executeUpdate();
 
@@ -51,13 +52,13 @@ public class ClientDAO {
         }
     }
 
-    public void Delete_client(String id) {
-        new Mysqlconnect().ConnectDb();
+    public void deleteClient(Client client) {
+        new Mysqlconnect().connectDb();
         String sql = "delete from ishiraku_client where id= ? ";
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
 
-            pst.setString(1, id);
+            pst.setInt(1, client.getId());
             pst.execute();
 
             JOptionPane.showMessageDialog(null, "Client supprimé avec succès");
@@ -65,8 +66,5 @@ public class ClientDAO {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
-
-
 
 }

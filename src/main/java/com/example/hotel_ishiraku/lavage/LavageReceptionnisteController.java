@@ -18,8 +18,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
 
@@ -115,18 +113,21 @@ public class LavageReceptionnisteController implements Initializable {
         txt_commentaire.setText(col_commentaire.getCellData(index).toString());
     }
 
-    public void Add_lavage() {
-        new LavageDAO().Add_lavage(txt_idLaveur.getText(), txt_date.getText(), txt_heure.getText(), txt_voiture.getText(), txt_commentaire.getText());
+    public void addLavage() {
+        Lavage lavage = new Lavage(Integer.parseInt(txt_idLaveur.getText()), txt_date.getText(), txt_heure.getText(), txt_voiture.getText(), txt_commentaire.getText());
+        new LavageDAO().addLavage(lavage);
         UpdateTable();
     }
 
-    public void Edit_lavage() {
-        new LavageDAO().Edit_lavage(txt_id.getText(), txt_idLaveur.getText(), txt_date.getText(), txt_heure.getText(), txt_voiture.getText(), txt_commentaire.getText());
+    public void editLavage() {
+        Lavage lavage = new Lavage(Integer.parseInt(txt_id.getText()),Integer.parseInt(txt_idLaveur.getText()), txt_date.getText(), txt_heure.getText(), txt_voiture.getText(), txt_commentaire.getText());
+        new LavageDAO().editLavage(lavage);
         UpdateTable();
     }
 
-    public void Delete_lavage() {
-        new LavageDAO().Delete(txt_id.getText());
+    public void deleteLavage() {
+        Lavage lavage = new Lavage(Integer.parseInt(txt_id.getText()));
+        new LavageDAO().delete(lavage);
         UpdateTable();
     }
 

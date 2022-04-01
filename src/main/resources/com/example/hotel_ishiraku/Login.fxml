@@ -28,7 +28,7 @@
         </PasswordField>
         <ComboBox fx:id="role" layoutX="27.0" layoutY="28.0" prefHeight="40.0" prefWidth="218.0"
                   promptText="RÔLE"/>
-        <Button fx:id="btn_login" layoutX="34.0" layoutY="230.0" mnemonicParsing="false" onAction="#Login"
+        <Button fx:id="btn_login" layoutX="34.0" layoutY="230.0" mnemonicParsing="false" onAction="#login"
                 prefHeight="51.0" prefWidth="305.0" style="-fx-background-color: #385898;" text="Connexion"
                 textFill="WHITE">
             <font>

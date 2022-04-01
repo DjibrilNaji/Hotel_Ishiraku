@@ -41,6 +41,9 @@ public class Reservation {
         this.dateEntree = dateEntree;
         this.dateSortie = dateSortie;
         this.place = place;
+    }
 
+    public Reservation(int place) {
+        this.place = place;
     }
 }

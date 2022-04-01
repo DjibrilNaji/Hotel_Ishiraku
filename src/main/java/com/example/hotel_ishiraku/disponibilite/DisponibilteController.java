@@ -59,13 +59,13 @@ public class DisponibilteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        UpdateTable();
+        updateTable();
         search_dispo();
     }
 
-    public void Dispo() {
-        new DisponibiliteDAO().Dispo_place(txt_dateArrivee.getText(), txt_dateSortie.getText());
-        UpdateTable();
+    public void dispo() {
+        new DisponibiliteDAO().dispoPlace(txt_dateArrivee.getText(), txt_dateSortie.getText());
+        updateTable();
     }
 
     @FXML
@@ -74,7 +74,7 @@ public class DisponibilteController implements Initializable {
         txt_dateSortie.setText(null);
     }
 
-    public void UpdateTable() {
+    public void updateTable() {
         col_id.setCellValueFactory(new PropertyValueFactory<Disponibilite, Integer>("id"));
         col_etage.setCellValueFactory(new PropertyValueFactory<Disponibilite, Integer>("etage"));
         col_numParking.setCellValueFactory(new PropertyValueFactory<Disponibilite, Integer>("numParking"));

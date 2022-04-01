@@ -51,14 +51,13 @@ public class ReservationController implements Initializable {
     @FXML
     private TextField txt_place;
 
-
     ObservableList<Reservation> listM;
 
     int index = -1;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        UpdateTable();
+        updateTable();
     }
 
     @FXML
@@ -82,23 +81,25 @@ public class ReservationController implements Initializable {
         txt_place.setText(col_place.getCellData(index).toString());
     }
 
-    public void Add() {
-        new ReservationDAO().Add_reservation(txt_id.getText(), dateArrivee.getText(), dateSortie.getText(), txt_place.getText());
-        UpdateTable();
+    public void add() {
+        Reservation reservation = new Reservation(Integer.parseInt(txt_id.getText()), dateArrivee.getText(), dateSortie.getText(), Integer.parseInt(txt_place.getText()));
+        new ReservationDAO().addReservation(reservation);
+        updateTable();
     }
 
-    public void Delete() {
-        new ReservationDAO().Delete_reservation(txt_place.getText());
-        UpdateTable();
+    public void delete() {
+        Reservation reservation = new Reservation(Integer.parseInt(txt_place.getText()));
+        new ReservationDAO().deleteReservation(reservation);
+        updateTable();
     }
 
-    public void Edit() {
-        new ReservationDAO().Edit_reservation(txt_id.getText(),dateArrivee.getText(),dateSortie.getText(),txt_place.getText());
-        UpdateTable();
+    public void edit() {
+        Reservation reservation = new Reservation(Integer.parseInt(txt_id.getText()), dateArrivee.getText(), dateSortie.getText(), Integer.parseInt(txt_place.getText()));
+        new ReservationDAO().editReservation(reservation);
+        updateTable();
     }
 
-    public void UpdateTable() {
-
+    public void updateTable() {
         col_id.setCellValueFactory(new PropertyValueFactory<Reservation, Integer>("client"));
         col_date_arrivee.setCellValueFactory(new PropertyValueFactory<Reservation, String>("dateEntree"));
         col_date_sortie.setCellValueFactory(new PropertyValueFactory<Reservation, String>("dateSortie"));
@@ -116,5 +117,4 @@ public class ReservationController implements Initializable {
         mainStage.setScene(scene);
         mainStage.show();
     }
-
 }

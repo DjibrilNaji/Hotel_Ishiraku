@@ -71,5 +71,26 @@ public class Lavage {
         this.voiture = voiture;
         this.commentaire = commentaire;
     }
+
+    public Lavage(int id, int laveur, String date, String heure, String voiture, String commentaire) {
+        this.id = id;
+        this.laveur = laveur;
+        this.date = date;
+        this.heure = heure;
+        this.voiture = voiture;
+        this.commentaire = commentaire;
+    }
+
+    public Lavage(int laveur, String date, String heure, String voiture, String commentaire) {
+        this.laveur = laveur;
+        this.date = date;
+        this.heure = heure;
+        this.voiture = voiture;
+        this.commentaire = commentaire;
+    }
+
+    public Lavage(int id) {
+        this.id = id;
+    }
 }
 

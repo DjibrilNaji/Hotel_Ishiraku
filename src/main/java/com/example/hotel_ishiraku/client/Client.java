@@ -43,4 +43,14 @@ public class Client {
         this.prenom = prenom;
         this.numero_telephone = numero_telephone;
     }
+
+    public Client(String nom, String prenom, String numero_telephone) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.numero_telephone = numero_telephone;
+    }
+
+    public Client(int id) {
+    }
+
 }

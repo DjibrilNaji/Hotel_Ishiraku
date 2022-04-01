@@ -50,8 +50,8 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void Login(ActionEvent event) throws Exception {
-        conn = new Mysqlconnect().ConnectDb();
+    private void login(ActionEvent event) throws Exception {
+        conn = new Mysqlconnect().connectDb();
         String sql = "Select * from ishiraku_employes where role = ? and login = ? and mdp = PASSWORD(?) ";
         try {
             pst = conn.prepareStatement(sql);
@@ -89,6 +89,4 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         role.getItems().addAll("receptionniste", "laveur");
     }
-
-
 }

@@ -18,9 +18,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class EmployesController implements Initializable {
@@ -73,13 +70,9 @@ public class EmployesController implements Initializable {
 
     int index = -1;
 
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        UpdateTable();
+        updateTable();
         search_employes();
     }
 
@@ -93,19 +86,22 @@ public class EmployesController implements Initializable {
         txt_mdp.setText(null);
     }
 
-    public void Add() {
-        new EmployesDAO().Add_employes(txt_role.getText(), txt_nom.getText(), txt_prenom.getText(), txt_login.getText(), txt_mdp.getText());
-        UpdateTable();
+    public void add() {
+        Employes employes = new Employes(txt_role.getText(), txt_nom.getText(), txt_prenom.getText(), txt_login.getText(), txt_mdp.getText());
+        new EmployesDAO().addEmployes(employes);
+        updateTable();
     }
 
-    public void Edit() {
-        new EmployesDAO().Edit_employes(txt_role.getText(), txt_nom.getText(), txt_prenom.getText(), txt_login.getText(), txt_mdp.getText());
-        UpdateTable();
+    public void edit() {
+        Employes employes = new Employes(txt_role.getText(), txt_nom.getText(), txt_prenom.getText(), txt_login.getText(), txt_mdp.getText());
+        new EmployesDAO().editEmployes(employes);
+        updateTable();
     }
 
-    public void Delete() {
-        new EmployesDAO().Delete_employes(txt_id.getText());
-        UpdateTable();
+    public void delete() {
+        Employes employes = new Employes(Integer.parseInt(txt_id.getText()));
+        new EmployesDAO().deleteEmployes(employes);
+        updateTable();
     }
 
     @FXML
@@ -121,7 +117,7 @@ public class EmployesController implements Initializable {
         txt_login.setText(col_login.getCellData(index).toString());
     }
 
-    public void UpdateTable() {
+    public void updateTable() {
         col_id.setCellValueFactory(new PropertyValueFactory<Employes, Integer>("id"));
         col_role.setCellValueFactory(new PropertyValueFactory<Employes, String>("role"));
         col_nom.setCellValueFactory(new PropertyValueFactory<Employes, String>("nom"));

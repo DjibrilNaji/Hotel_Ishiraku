@@ -3,7 +3,7 @@ package com.example.hotel_ishiraku.employes;
 public class Employes {
 
     int id;
-    String role, nom, prenom, login;
+    String role, nom, prenom, login, mdp;
 
     public int getId() {
         return id;
@@ -45,11 +45,32 @@ public class Employes {
         this.login = login;
     }
 
-    public Employes(int id, String role, String nom, String prenom, String login) {
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    public Employes(int id, String role, String nom, String prenom, String login, String mdp) {
         this.id = id;
         this.role = role;
         this.nom = nom;
         this.prenom = prenom;
         this.login = login;
+        this.mdp = mdp;
+    }
+
+    public Employes(String role, String nom, String prenom, String login, String mdp) {
+        this.role = role;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.login = login;
+        this.mdp = mdp;
+    }
+
+    public Employes(int id) {
+        this.id = id;
     }
 }

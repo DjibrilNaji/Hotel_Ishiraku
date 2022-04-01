@@ -68,23 +68,26 @@ public class ClientController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        UpdateTable();
+        updateTable();
         search_client();
     }
 
-    public void Add() {
-        new ClientDAO().Add_client(txt_nom.getText(), txt_prenom.getText(), txt_numero.getText());
-        UpdateTable();
+    public void add() {
+        Client client = new Client(txt_nom.getText(), txt_prenom.getText(), txt_numero.getText());
+        new ClientDAO().addClient(client);
+        updateTable();
     }
 
-    public void Edit() {
-        new ClientDAO().Edit_client(txt_id.getText(), txt_nom.getText(), txt_prenom.getText(), txt_numero.getText());
-        UpdateTable();
+    public void edit() {
+        Client client = new Client(Integer.parseInt(txt_id.getText()),txt_nom.getText(), txt_prenom.getText(), txt_numero.getText());
+        new ClientDAO().editClient(client);
+        updateTable();
     }
 
-    public void Delete() {
-        new ClientDAO().Delete_client(txt_id.getText());
-        UpdateTable();
+    public void delete() {
+        Client client = new Client(Integer.parseInt(txt_id.getText()));
+        new ClientDAO().deleteClient(client);
+        updateTable();
     }
 
     @FXML
@@ -107,7 +110,7 @@ public class ClientController implements Initializable {
         txt_numero.setText(col_numero.getCellData(index).toString());
     }
 
-    public void UpdateTable() {
+    public void updateTable() {
         col_id.setCellValueFactory(new PropertyValueFactory<Client, Integer>("id"));
         col_nom.setCellValueFactory(new PropertyValueFactory<Client, String>("nom"));
         col_prenom.setCellValueFactory(new PropertyValueFactory<Client, String>("prenom"));

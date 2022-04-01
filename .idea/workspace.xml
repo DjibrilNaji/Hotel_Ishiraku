@@ -10,51 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ead35078-17dd-488b-8d76-eaed172d85ac" name="Changes" comment="envoie7">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/DAO/ClientDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/DAO/DisponibiliteDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/DAO/EmployesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/DAO/LavageDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/DAO/ReservationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Appli.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Hotel_Ishiraku.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Hotel_Ishiraku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Hotel_Ishiraku.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/client/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/client/client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/disponibilite/DisponibilteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/disponibilite/DisponibilteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/disponibilite/disponibilite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/disponibilite/Disponibilite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/employes/EmployesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/employes/EmployesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/employes/employes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/employes/Employes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/lavage/DaoLavage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/lavage/LavageLaveurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/lavage/LavageLaveurController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/lavage/LavageReceptionnisteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/lavage/LavageReceptionnisteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/lavage/lavage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/lavage/Lavage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/login/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/login/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/mysqlconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Mysqlconnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/reservation/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/reservation/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/reservation/reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/reservation/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/Client.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/ConsulterLavageLaveur.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/ConsulterLavageLaveur.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/ConsulterLavageReceptionniste.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/ConsulterLavageReceptionniste.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/Disponibilites.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/Disponibilites.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/Employes.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/Employes.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/Reservation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/Reservation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/SommaireLaveur.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/hotel_ishiraku/SommaireLaveur.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/Client.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/Disponibilites.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/Disponibilites.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/client/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/client/ClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/client/client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/client/client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/disponibilite/DisponibilteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/disponibilite/DisponibilteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/disponibilite/disponibilite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/disponibilite/disponibilite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/lavage/LavageLaveurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/lavage/LavageLaveurController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/lavage/LavageReceptionnisteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/lavage/LavageReceptionnisteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/lavage/lavage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/lavage/lavage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/login/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/login/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/login/login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/login/login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/mysqlconnect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/mysqlconnect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Mysqlconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Mysqlconnect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,6 +214,10 @@
       <workItem from="1648668857932" duration="3291000" />
       <workItem from="1648709066193" duration="13861000" />
       <workItem from="1648749797571" duration="3286000" />
+      <workItem from="1648758138091" duration="1466000" />
+      <workItem from="1648760502266" duration="87000" />
+      <workItem from="1648813259867" duration="7685000" />
+      <workItem from="1648823012558" duration="195000" />
     </task>
     <task id="LOCAL-00001" summary="envoie">
       <created>1643155903646</created>
@@ -384,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648636006629</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="envoie7">
+      <created>1648758247989</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1648758247989</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 
 public class Mysqlconnect {
 
-    public Connection ConnectDb() {
+    public Connection connectDb() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelishiraku", "root", "root");
@@ -30,7 +30,7 @@ public class Mysqlconnect {
     }
 
     public ObservableList<Lavage> getDataLavage() {
-        Connection conn = ConnectDb();
+        Connection conn = connectDb();
         ObservableList<Lavage> listLavage = FXCollections.observableArrayList();
         try {
             assert conn != null;
@@ -54,7 +54,7 @@ public class Mysqlconnect {
     }
 
     public ObservableList<Disponibilite> getDataPlace() {
-        Connection conn = ConnectDb();
+        Connection conn = connectDb();
         ObservableList<Disponibilite> listPlace = FXCollections.observableArrayList();
         try {
             assert conn != null;
@@ -77,14 +77,14 @@ public class Mysqlconnect {
     }
 
     public ObservableList<Disponibilite> getDataPlaceByDate(String dateArrivee, String dateSortie) {
-        Connection conn = ConnectDb();
+        Connection conn = connectDb();
         ObservableList<Disponibilite> listPlace = FXCollections.observableArrayList();
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement("SELECT p.id, p.etage, p.numParking, cat.categorie, t.typevoiture " +
                     "from ishiraku_place p, ishiraku_categorie cat, ishiraku_typevoiture t " +
                     "where p.categorie=cat.id and p.typevoiture=t.id_type and p.id not in (SELECT place from ishiraku_reservation " +
-                    "where (?<=dateSortie and ?>=dateEntree) or (? >=dateEntree and ?<=dateSortie)) order by id");
+                    "where (?>=dateEntree and ?<=dateSortie) or (?>=dateEntree and ?<=dateSortie)) order by id");
 
             ps.setString(1, dateSortie);
             ps.setString(2, dateSortie);
@@ -107,7 +107,7 @@ public class Mysqlconnect {
     }
 
     public ObservableList<Client> getDataClient() {
-        Connection conn = ConnectDb();
+        Connection conn = connectDb();
         ObservableList<Client> listClient = FXCollections.observableArrayList();
         try {
             assert conn != null;
@@ -128,7 +128,7 @@ public class Mysqlconnect {
     }
 
     public ObservableList<Employes> getDataEmployes() {
-        Connection conn = ConnectDb();
+        Connection conn = connectDb();
         ObservableList<Employes> listEmployes = FXCollections.observableArrayList();
         try {
             assert conn != null;
@@ -141,7 +141,8 @@ public class Mysqlconnect {
                         rs.getString("role"),
                         rs.getString("nom"),
                         rs.getString("prenom"),
-                        rs.getString("login")));
+                        rs.getString("login"),
+                        rs.getString("mdp")));
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -149,9 +150,8 @@ public class Mysqlconnect {
         return listEmployes;
     }
 
-
     public ObservableList<Reservation> getDataReservation() {
-        Connection conn = ConnectDb();
+        Connection conn = connectDb();
         ObservableList<Reservation> listReservation = FXCollections.observableArrayList();
         try {
             assert conn != null;
@@ -171,5 +171,3 @@ public class Mysqlconnect {
         return listReservation;
     }
 }
-
-
