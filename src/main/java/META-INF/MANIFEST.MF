@@ -1,3 +1,8 @@
 Manifest-Version: 1.0
 Main-Class: com.example.hotel_ishiraku.Hotel_Ishiraku
+Class-Path: javafx-base-16-win.jar mysql-connector-java-8.0.27.jar forms
+ fx-core-11.3.2.jar javafx-base-16.jar javafx-fxml-16.jar javafx-graphic
+ s-16.jar controlsfx-11.1.0.jar javafx-controls-16.jar javafx-graphics-1
+ 6-win.jar javafx-controls-16-win.jar bootstrapfx-core-0.4.0.jar javafx-
+ fxml-16-win.jar
 

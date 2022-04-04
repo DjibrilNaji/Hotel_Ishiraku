@@ -14,13 +14,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
 public class Mysqlconnect {
 
     public Connection connectDb() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelishiraku", "root", "root");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://sio-hautil.eu/najid", "najid", "Djibs785");
 
             return conn;
         } catch (Exception e) {
