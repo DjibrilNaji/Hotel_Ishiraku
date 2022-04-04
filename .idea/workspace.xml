@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ead35078-17dd-488b-8d76-eaed172d85ac" name="Changes" comment="envoie7">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,9 +73,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.32329842" />
+    <property name="project.structure.side.proportion" value="0.37172773" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
@@ -101,7 +100,7 @@
       <recent name="com.example.hotel_ishiraku" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.Hotel_Ishiraku.jar">
+  <component name="RunManager" selected="Application.Hotel_Ishiraku">
     <configuration name="Hotel_Ishiraku" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="16" />
       <option name="MAIN_CLASS_NAME" value="com.example.hotel_ishiraku.Hotel_Ishiraku" />
@@ -138,8 +137,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.Hotel_Ishiraku.jar" />
         <item itemvalue="Application.Hotel_Ishiraku" />
+        <item itemvalue="JAR Application.Hotel_Ishiraku.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -362,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649058369455</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="envoie7">
+      <created>1649058694222</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1649058694222</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
