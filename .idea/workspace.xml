@@ -119,7 +119,7 @@
       <recent name="com.example.hotel_ishiraku" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.Hotel_Ishiraku.jar">
+  <component name="RunManager" selected="Application.Hotel_Ishiraku">
     <configuration name="Hotel_Ishiraku" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="16" />
       <option name="MAIN_CLASS_NAME" value="com.example.hotel_ishiraku.Hotel_Ishiraku" />
@@ -156,8 +156,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.Hotel_Ishiraku.jar" />
         <item itemvalue="Application.Hotel_Ishiraku" />
+        <item itemvalue="JAR Application.Hotel_Ishiraku.jar" />
       </list>
     </recent_temporary>
   </component>
