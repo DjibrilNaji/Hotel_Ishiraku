@@ -10,26 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ead35078-17dd-488b-8d76-eaed172d85ac" name="Changes" comment="envoie7">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Hotel_Ishiraku_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Hotel_Ishiraku_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/Hotel_Ishiraku.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/Hotelo_ishiraku.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/bootstrapfx-core-0.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/controlsfx-11.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/formsfx-core-11.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/javafx-base-16-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/javafx-base-16.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/javafx-controls-16-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/javafx-controls-16.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/javafx-fxml-16-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/javafx-fxml-16.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/javafx-graphics-16-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/javafx-graphics-16.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Hotel_Ishiraku_jar/mysql-connector-java-8.0.26.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Mysqlconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/Mysqlconnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/Hotel_Ishiraku.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/Hotel_Ishiraku.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/mysqlconnect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hotel_ishiraku/mysqlconnect.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +101,7 @@
       <recent name="com.example.hotel_ishiraku" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Hotel_Ishiraku">
+  <component name="RunManager" selected="JAR Application.Hotel_Ishiraku.jar">
     <configuration name="Hotel_Ishiraku" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="16" />
       <option name="MAIN_CLASS_NAME" value="com.example.hotel_ishiraku.Hotel_Ishiraku" />
@@ -156,8 +138,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Hotel_Ishiraku" />
         <item itemvalue="JAR Application.Hotel_Ishiraku.jar" />
+        <item itemvalue="Application.Hotel_Ishiraku" />
       </list>
     </recent_temporary>
   </component>
@@ -373,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648758247989</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="envoie7">
+      <created>1649058369455</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1649058369455</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,5 +390,9 @@
     <MESSAGE value="envoie6" />
     <MESSAGE value="envoie7" />
     <option name="LAST_COMMIT_MESSAGE" value="envoie7" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
