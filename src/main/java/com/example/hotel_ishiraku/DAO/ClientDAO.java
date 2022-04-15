@@ -2,6 +2,7 @@ package com.example.hotel_ishiraku.DAO;
 
 import com.example.hotel_ishiraku.Mysqlconnect;
 import com.example.hotel_ishiraku.client.Client;
+import com.example.hotel_ishiraku.employes.Employes;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -31,11 +32,27 @@ public class ClientDAO {
         }
     }
 
-    public void editClient(Client client) {
-        try {
-            conn = new Mysqlconnect().connectDb();
+    public void deleteClient(Client client) {
+        conn = new Mysqlconnect().connectDb();
+        String sql = "delete from ishiraku_client where id= ? ";
 
-            String sql = "update ishiraku_client set nom= ?,prenom= ?,numero_telephone=? where id= ?";
+        try {
+            PreparedStatement pst = conn.prepareStatement(sql);
+
+            pst.setInt(1, client.getId());
+            pst.execute();
+
+            JOptionPane.showMessageDialog(null, "Client supprimé avec succès");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    public void editClient(Client client) {
+        new Mysqlconnect().connectDb();
+        String sql = "update ishiraku_client set nom= ?,prenom= ?,numero_telephone=? where id= ?";
+
+        try {
 
             PreparedStatement pst = conn.prepareStatement(sql);
 
@@ -52,19 +69,6 @@ public class ClientDAO {
         }
     }
 
-    public void deleteClient(Client client) {
-        new Mysqlconnect().connectDb();
-        String sql = "delete from ishiraku_client where id= ? ";
-        try {
-            PreparedStatement pst = conn.prepareStatement(sql);
 
-            pst.setInt(1, client.getId());
-            pst.execute();
-
-            JOptionPane.showMessageDialog(null, "Client supprimé avec succès");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
 
 }

@@ -76,6 +76,7 @@ public class ClientController implements Initializable {
         Client client = new Client(txt_nom.getText(), txt_prenom.getText(), txt_numero.getText());
         new ClientDAO().addClient(client);
         updateTable();
+        clear();
     }
 
     public void edit() {
@@ -88,10 +89,11 @@ public class ClientController implements Initializable {
         Client client = new Client(Integer.parseInt(txt_id.getText()));
         new ClientDAO().deleteClient(client);
         updateTable();
+        clear();
     }
 
     @FXML
-    void clear(ActionEvent event) {
+    void clear() {
         txt_id.setText(null);
         txt_nom.setText(null);
         txt_prenom.setText(null);

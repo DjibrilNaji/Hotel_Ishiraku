@@ -36,5 +36,4 @@ module com.example.hotel_ishiraku {
     exports com.example.hotel_ishiraku.DAO;
     opens com.example.hotel_ishiraku.DAO to javafx.fxml;
 
-
 }

@@ -11,6 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ead35078-17dd-488b-8d76-eaed172d85ac" name="Changes" comment="envoie7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/DAO/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/DAO/ClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/client/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hotel_ishiraku/client/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +75,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../wamp64/www/oteloprojet7" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37172773" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
@@ -220,6 +224,12 @@
       <workItem from="1648824340387" duration="993000" />
       <workItem from="1648825472051" duration="1366000" />
       <workItem from="1649054985962" duration="472000" />
+      <workItem from="1649141207331" duration="69000" />
+      <workItem from="1649366706459" duration="1465000" />
+      <workItem from="1649947609750" duration="187000" />
+      <workItem from="1649963696068" duration="602000" />
+      <workItem from="1649966045275" duration="643000" />
+      <workItem from="1650005001764" duration="1941000" />
     </task>
     <task id="LOCAL-00001" summary="envoie">
       <created>1643155903646</created>
@@ -368,7 +378,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649058694222</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="envoie7">
+      <created>1649059215583</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1649059215583</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
