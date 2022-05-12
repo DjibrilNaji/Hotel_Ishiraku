@@ -52,6 +52,30 @@ public class Mysqlconnect {
         return listLavage;
     }
 
+    public ObservableList<Lavage> getDataLavageLaveur() {
+        Connection conn = connectDb();
+        ObservableList<Lavage> listLavage = FXCollections.observableArrayList();
+        try {
+            assert conn != null;
+            PreparedStatement ps = conn.prepareStatement("select l.id, l.laveur, e.prenom, l.date, l.heure, l.voiture, l.commentaire " +
+                    "from ishiraku_lavage l, ishiraku_employes e where l.laveur=e.id ORDER BY id");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                listLavage.add(new Lavage(rs.getInt("id"),
+                        rs.getInt("laveur"),
+                        rs.getString("prenom"),
+                        rs.getString("date"),
+                        rs.getString("heure"),
+                        rs.getString("voiture"),
+                        rs.getString("commentaire")));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return listLavage;
+    }
+
     public ObservableList<Disponibilite> getDataPlace() {
         Connection conn = connectDb();
         ObservableList<Disponibilite> listPlace = FXCollections.observableArrayList();

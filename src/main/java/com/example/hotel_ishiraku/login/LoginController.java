@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -22,7 +24,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import javax.swing.JOptionPane;
-
 
 public class LoginController implements Initializable {
 
@@ -76,13 +77,11 @@ public class LoginController implements Initializable {
                     mainStage.setScene(scene);
                     mainStage.show();
                 }
-
             } else
                 JOptionPane.showMessageDialog(null, "Identifiant ou login incorrect");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
 
     @Override

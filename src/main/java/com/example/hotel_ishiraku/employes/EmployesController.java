@@ -90,18 +90,21 @@ public class EmployesController implements Initializable {
         Employes employes = new Employes(txt_role.getText(), txt_nom.getText(), txt_prenom.getText(), txt_login.getText(), txt_mdp.getText());
         new EmployesDAO().addEmployes(employes);
         updateTable();
+        clear();
     }
 
     public void edit() {
         Employes employes = new Employes(txt_role.getText(), txt_nom.getText(), txt_prenom.getText(), txt_login.getText(), txt_mdp.getText());
         new EmployesDAO().editEmployes(employes);
         updateTable();
+        clear();
     }
 
     public void delete() {
         Employes employes = new Employes(Integer.parseInt(txt_id.getText()));
         new EmployesDAO().deleteEmployes(employes);
         updateTable();
+        clear();
     }
 
     @FXML

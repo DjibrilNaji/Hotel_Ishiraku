@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0"
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0"
       prefWidth="522.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.hotel_ishiraku.sommaire.SommaireReceptionnisteController">
@@ -42,7 +42,7 @@
             <Font size="20.0"/>
         </font>
     </Button>
-    <Button fx:id="btn_deconnexion" layoutX="42.0" layoutY="360.0" mnemonicParsing="false" onAction="#deconnexion"
+    <Button fx:id="btn_deconnexion" layoutX="42.0" layoutY="352.0" mnemonicParsing="false" onAction="#deconnexion"
             prefHeight="44.0" prefWidth="176.0" text="Deconnexion">
         <font>
             <Font size="20.0"/>

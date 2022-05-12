@@ -16,8 +16,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
 
@@ -46,7 +49,6 @@ public class LavageReceptionnisteController implements Initializable {
 
     @FXML
     private TableColumn<Lavage, String> col_commentaire;
-
 
     @FXML
     private TextField txt_id;
@@ -83,7 +85,7 @@ public class LavageReceptionnisteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        UpdateTable();
+        updateTable();
         search_user();
     }
 
@@ -116,23 +118,23 @@ public class LavageReceptionnisteController implements Initializable {
     public void addLavage() {
         Lavage lavage = new Lavage(Integer.parseInt(txt_idLaveur.getText()), txt_date.getText(), txt_heure.getText(), txt_voiture.getText(), txt_commentaire.getText());
         new LavageDAO().addLavage(lavage);
-        UpdateTable();
+        updateTable();
     }
 
     public void editLavage() {
-        Lavage lavage = new Lavage(Integer.parseInt(txt_id.getText()),Integer.parseInt(txt_idLaveur.getText()), txt_date.getText(), txt_heure.getText(), txt_voiture.getText(), txt_commentaire.getText());
+        Lavage lavage = new Lavage(Integer.parseInt(txt_id.getText()), Integer.parseInt(txt_idLaveur.getText()), txt_date.getText(), txt_heure.getText(), txt_voiture.getText(), txt_commentaire.getText());
         new LavageDAO().editLavage(lavage);
-        UpdateTable();
+        updateTable();
     }
 
     public void deleteLavage() {
         Lavage lavage = new Lavage(Integer.parseInt(txt_id.getText()));
         new LavageDAO().delete(lavage);
-        UpdateTable();
+        updateTable();
     }
 
     @FXML
-    public void UpdateTable() {
+    public void updateTable() {
         col_id.setCellValueFactory(new PropertyValueFactory<Lavage, Integer>("id"));
         col_idLaveur.setCellValueFactory(new PropertyValueFactory<Lavage, Integer>("laveur"));
         col_laveur.setCellValueFactory(new PropertyValueFactory<Lavage, String>("prenom"));

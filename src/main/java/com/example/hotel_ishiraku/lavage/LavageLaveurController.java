@@ -2,6 +2,8 @@ package com.example.hotel_ishiraku.lavage;
 
 import com.example.hotel_ishiraku.Mysqlconnect;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LavageLaveurController implements Initializable {
@@ -40,13 +43,18 @@ public class LavageLaveurController implements Initializable {
     private TableColumn<Lavage, String> col_commentaire;
 
     @FXML
-    Button btn_accueil;
+    private TextField filterField;
+
+    @FXML
+    private Button btn_accueil;
 
     ObservableList<Lavage> listM;
+    ObservableList<Lavage> dataList;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         updateTable();
+        search_user();
     }
 
     public void updateTable() {
@@ -57,47 +65,42 @@ public class LavageLaveurController implements Initializable {
         col_voiture.setCellValueFactory(new PropertyValueFactory<Lavage, String>("voiture"));
         col_commentaire.setCellValueFactory(new PropertyValueFactory<Lavage, String>("commentaire"));
 
-        listM = new Mysqlconnect().getDataLavage();
+        listM = new Mysqlconnect().getDataLavageLaveur();
         table_lavage.setItems(listM);
     }
 
-//    @FXML
-//    void search_user() {
-//        col_id.setCellValueFactory(new PropertyValueFactory<lavage, Integer>("id"));
-//        col_laveur.setCellValueFactory(new PropertyValueFactory<lavage, Integer>("laveur"));
-//        col_date.setCellValueFactory(new PropertyValueFactory<lavage, String>("date"));
-//        col_heure.setCellValueFactory(new PropertyValueFactory<lavage, String>("heure"));
-//        col_voiture.setCellValueFactory(new PropertyValueFactory<lavage, String>("voiture"));
-//        col_commentaire.setCellValueFactory(new PropertyValueFactory<lavage, String>("commentaire"));
-//
-//        dataList = mysqlconnect.getDataLavage();
-//        table_lavage.setItems(dataList);
-//        FilteredList<lavage> filteredData = new FilteredList<>(dataList, b -> true);
-//        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-////            filteredData.setPredicate(person -> {
-//                if (newValue == null || newValue.isEmpty()) {
-//                    return true;
-//                }
-//                String lowerCaseFilter = newValue.toLowerCase();
-//
-//                if (person.getHeure().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
-//                    return true; // Filter matches username
-//                } else if (person.getPassword().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-//                    return true; // Filter matches password
-//                }else if (person.getType().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-//                    return true; // Filter matches password
-//                }
-//                else if (String.valueOf(person.getEmail()).indexOf(lowerCaseFilter)!=-1)
-//                    return true;// Filter matches email
-//
-//                else
-//                    return false; // Does not match.
-//            });
-//        });
-//        SortedList<lavage> sortedData = new SortedList<>(filteredData);
-//        sortedData.comparatorProperty().bind(table_lavage.comparatorProperty());
-//        table_lavage.setItems(sortedData);
-//    }
+    @FXML
+    void search_user() {
+        col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        col_laveur.setCellValueFactory(new PropertyValueFactory<Lavage, String>("prenom"));
+        col_date.setCellValueFactory(new PropertyValueFactory<Lavage, String>("date"));
+        col_heure.setCellValueFactory(new PropertyValueFactory<Lavage, String>("heure"));
+        col_voiture.setCellValueFactory(new PropertyValueFactory<Lavage, String>("voiture"));
+        col_commentaire.setCellValueFactory(new PropertyValueFactory<Lavage, String>("commentaire"));
+
+        dataList = new Mysqlconnect().getDataLavageLaveur();
+        table_lavage.setItems(dataList);
+
+        FilteredList<Lavage> filteredData = new FilteredList<>(dataList, b -> true);
+        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getPrenom().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches username
+                } else if (person.getHeure().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches password
+                } else
+                    return false; // Does not match.
+            });
+        });
+        SortedList<Lavage> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(table_lavage.comparatorProperty());
+        table_lavage.setItems(sortedData);
+    }
 
     public void sommaire(ActionEvent actionEvent) throws IOException {
         btn_accueil.getScene().getWindow().hide();
@@ -107,5 +110,4 @@ public class LavageLaveurController implements Initializable {
         mainStage.setScene(scene);
         mainStage.show();
     }
-
 }

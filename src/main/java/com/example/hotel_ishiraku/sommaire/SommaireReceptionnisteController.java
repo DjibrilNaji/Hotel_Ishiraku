@@ -31,6 +31,10 @@ public class SommaireReceptionnisteController {
     private Button btn_deconnexion;
 
 
+    @FXML
+    private Button btn_consulter_choix;
+
+
     public void consulter_client(ActionEvent actionEvent) throws IOException {
         btn_consulter_client.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/hotel_ishiraku/Client.fxml"));
@@ -84,6 +88,6 @@ public class SommaireReceptionnisteController {
         mainStage.setScene(scene);
         mainStage.show();
     }
-
-
 }
+
+
